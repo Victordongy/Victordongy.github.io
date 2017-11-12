@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Victor's Blog</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2017-11-10T13:33:00-05:00</updated><entry><title>First Post</title><link href="/first-post.html" rel="alternate"></link><published>2017-11-10T13:33:00-05:00</published><updated>2017-11-10T13:33:00-05:00</updated><author><name>Victor Dong</name></author><id>tag:None,2017-11-10:/first-post.html</id><summary type="html">
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Victor's Blog</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2017-11-12T12:08:00-05:00</updated><entry><title>CV</title><link href="/Third-Post.html" rel="alternate"></link><published>2017-11-12T12:08:00-05:00</published><updated>2017-11-12T12:08:00-05:00</updated><author><name>Victor Dong</name></author><id>tag:None,2017-11-12:/Third-Post.html</id><summary type="html">&lt;p&gt;My Resume, read it out!&lt;/p&gt;</summary><content type="html"></content><category term="CV"></category></entry><entry><title>First Post</title><link href="/first-post.html" rel="alternate"></link><published>2017-11-10T13:33:00-05:00</published><updated>2017-11-10T13:33:00-05:00</updated><author><name>Victor Dong</name></author><id>tag:None,2017-11-10:/first-post.html</id><summary type="html">
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
@@ -18724,4 +18724,4 @@ What you should remember:&lt;/font&gt;&lt;/p&gt;
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="python second"></category></entry></feed>
+</content><category term="Machine Learning"></category><category term="Art Transfer"></category></entry></feed>
