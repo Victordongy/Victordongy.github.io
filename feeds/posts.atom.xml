@@ -48,7 +48,7 @@ $(document).ready(function () {
 
 &lt;/div&gt;
 
-&lt;iframe src="C:/datascientist/US_Stock.html" width="100%" height="3000px" style="border: 0px;" /&gt;
+&lt;iframe src="images/US_Stock.html" width="100%" height="3000px" style="border: 0px;" /&gt;
 &lt;p&gt;What should we project for the U.S stocks in 2018, or maybe in 3 years’ period? Although Keynes once said that in long-term run every one would die, but we just need to shorten this infinite long term to a certain T, ie, 3 to 5 years.&lt;/p&gt;
 &lt;p&gt;We have seem the upward trend for most of the stock market from late 2016 to present. And U.S stocks are showing as well a peaking momentum.&lt;/p&gt;
 &lt;pre class="r"&gt;&lt;code&gt;ticker &amp;lt;- c(&amp;quot;XLY&amp;quot;, &amp;quot;XLP&amp;quot;, &amp;quot;XLE&amp;quot;,    &amp;quot;XLF&amp;quot;, &amp;quot;XLV&amp;quot;,   
