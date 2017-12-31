@@ -5,10 +5,7 @@
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h1 id="Deep-Learning-&amp;amp;-Art:-Neural-Style-Transfer"&gt;Deep Learning &amp; Art: Neural Style Transfer&lt;a class="anchor-link" href="#Deep-Learning-&amp;amp;-Art:-Neural-Style-Transfer"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Welcome to the second assignment of this week. In this assignment, you will learn about Neural Style Transfer. This algorithm was created by Gatys et al. (2015) (&lt;a href="https://arxiv.org/abs/1508.06576"&gt;https://arxiv.org/abs/1508.06576&lt;/a&gt;).&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;In this assignment, you will:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Implement the neural style transfer algorithm &lt;/li&gt;
-&lt;li&gt;Generate novel artistic images using your algorithm &lt;/li&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;p&gt;&lt;strong&gt;In this notebook, you will follow my lead to see how deep learning applying to art transfer and make artwork refreshed:&lt;/strong&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -985,7 +982,7 @@ h6:hover .anchor-link {
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h1 id="Deep-Learning-&amp;amp;-Art:-Neural-Style-Transfer"&gt;Deep Learning &amp; Art: Neural Style Transfer&lt;a class="anchor-link" href="#Deep-Learning-&amp;amp;-Art:-Neural-Style-Transfer"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Welcome to the second assignment of this week. In this assignment, you will learn about Neural Style Transfer. This algorithm was created by Gatys et al. (2015) (&lt;a href="https://arxiv.org/abs/1508.06576"&gt;https://arxiv.org/abs/1508.06576&lt;/a&gt;).&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;In this assignment, you will:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;In this notebook, you will follow my lead to see how deep learning applying to art transfer and make artwork refreshed:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Implement the neural style transfer algorithm &lt;/li&gt;
 &lt;li&gt;Generate novel artistic images using your algorithm &lt;/li&gt;
@@ -1026,7 +1023,7 @@ h6:hover .anchor-link {
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="1---Problem-Statement"&gt;1 - Problem Statement&lt;a class="anchor-link" href="#1---Problem-Statement"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Neural Style Transfer (NST) is one of the most fun techniques in deep learning. As seen below, it merges two images, namely, a "content" image (C) and a "style" image (S), to create a "generated" image (G). The generated image G combines the "content" of the image C with the "style" of image S.&lt;/p&gt;
 &lt;p&gt;In this example, you are going to generate an image of the Louvre museum in Paris (content image C), mixed with a painting by Claude Monet, a leader of the impressionist movement (style image S).&lt;/p&gt;
-&lt;p&gt;&lt;img src="./transfer_art/generated/generated_image (1).jpg" style="width:750px;height:450px;" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="C:/Users/User/Documents/machine_learning/CNN_deep_learning/transfer_art/generated/generated_image (1).jpg" style="width:750px;height:450px;" /&gt;&lt;/p&gt;
 &lt;p&gt;Let's see how you can do this.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -17690,7 +17687,7 @@ VYYMGTJ+ErKAKkOGDBk/CVlAlSFDhoyfhCygypAhQ8ZP4v8Byb9nkgtad5kAAAAASUVORK5CYII=
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [39]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;model_nn&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sess&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;generated_image&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -17747,7 +17744,7 @@ style cost = 77272.1
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
-&lt;div class="prompt output_prompt"&gt;Out[ ]:&lt;/div&gt;
+&lt;div class="prompt output_prompt"&gt;Out[39]:&lt;/div&gt;
 &lt;div class="output_text output_subarea output_execute_result"&gt;
 &lt;pre&gt;array([[[[  -9.30067253,   12.74518871,   76.41146088],
          [   3.96814203,    3.95286918,   57.22310638],
