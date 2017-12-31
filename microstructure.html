@@ -1,0 +1,2154 @@
+
+<!DOCTYPE HTML>
+<!--
+	Dopetrope 2.0 by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+			<title>Victor's Blog</title>
+			<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+			<meta charset="utf-8" />
+			<link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Victor's Blog Full Atom Feed" />
+			<link href="/feeds/posts.atom.xml" type="application/atom+xml" rel="alternate" title="Victor's Blog Categories Atom Feed" />
+			<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,300italic" rel="stylesheet" />
+				<link rel="stylesheet" href="/theme/css/pygment.css" />
+			<noscript>
+				<link rel="stylesheet" href="/theme/css/skel-noscript.css" />
+				<link rel="stylesheet" href="/theme/css/style.css" />
+				<link rel="stylesheet" href="/theme/css/style-desktop.css" />
+			</noscript>
+	</head>
+	<body class="no-sidebar">
+		<!-- Header Wrapper -->
+			<div id="header-wrapper">
+				<div class="container">
+					<div class="row">
+						<div class="12u">
+						
+							<!-- Header -->
+								<section id="header">
+									
+									<!-- Logo -->
+									<h1><a href="/">Victor's Blog</a></h1>
+									
+									<!-- Nav -->
+										<nav id="nav">
+											<ul>
+														<li><a href="/pages/Third-Post.html">CV</a></li>
+											</ul>
+										</nav>
+
+								</section>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		<!-- Main Wrapper -->
+			<div id="main-wrapper">
+				<div class="container">
+<div class="row">
+	<div class="12u">
+			<section>
+				<div>
+					<div class="row">
+						<div class="12u skel-cell-mainContent">
+							<!-- Content -->
+								<article class="box is-post">
+									<div class="post-infos">
+										<ul class="tags">
+											<li><a class="button" href="category/posts.html">Posts</a></li>
+												<li><a class="button button-alt" href="tag/microstructure.html">Microstructure</a></li>
+
+										</ul>
+									</div>
+
+									<div class="pennant pennant-alt date">2017-11-30</div>
+									<h2>SFGK model</h2>
+									<style type="text/css">/*!
+*
+* IPython notebook
+*
+*/
+/* CSS font colors for translated ANSI colors. */
+.ansibold {
+  font-weight: bold;
+}
+/* use dark versions for foreground, to improve visibility */
+.ansiblack {
+  color: black;
+}
+.ansired {
+  color: darkred;
+}
+.ansigreen {
+  color: darkgreen;
+}
+.ansiyellow {
+  color: #c4a000;
+}
+.ansiblue {
+  color: darkblue;
+}
+.ansipurple {
+  color: darkviolet;
+}
+.ansicyan {
+  color: steelblue;
+}
+.ansigray {
+  color: gray;
+}
+/* and light for background, for the same reason */
+.ansibgblack {
+  background-color: black;
+}
+.ansibgred {
+  background-color: red;
+}
+.ansibggreen {
+  background-color: green;
+}
+.ansibgyellow {
+  background-color: yellow;
+}
+.ansibgblue {
+  background-color: blue;
+}
+.ansibgpurple {
+  background-color: magenta;
+}
+.ansibgcyan {
+  background-color: cyan;
+}
+.ansibggray {
+  background-color: gray;
+}
+div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  border-left-width: 1px;
+  padding-left: 5px;
+  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
+}
+div.cell.jupyter-soft-selected {
+  border-left-color: #90CAF9;
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected {
+  border-color: #ababab;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
+}
+@media print {
+  div.cell.selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected.jupyter-soft-selected {
+  border-left-width: 0;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
+}
+.edit_mode div.cell.selected {
+  border-color: #66BB6A;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
+}
+@media print {
+  .edit_mode div.cell.selected {
+    border-color: transparent;
+  }
+}
+.prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .prompt {
+    text-align: left;
+  }
+}
+div.inner_cell {
+  min-width: 0;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.unrecognized_cell > div.prompt {
+    display: none;
+  }
+}
+div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.input_area > div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.input_area > div.highlight > pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the <head> if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+.CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+.CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  padding: 0.4em;
+}
+.CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+.CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
+  /* .CodeMirror-lines */
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Adapted from GitHub theme
+
+*/
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+/* previously not defined, copying from default codemirror */
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+/* apply the same style to codemirror */
+.cm-s-ipython span.cm-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-atom {
+  color: #88F;
+}
+.cm-s-ipython span.cm-number {
+  color: #080;
+}
+.cm-s-ipython span.cm-def {
+  color: #00f;
+}
+.cm-s-ipython span.cm-variable {
+  color: #000;
+}
+.cm-s-ipython span.cm-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-variable-2 {
+  color: #1a1a1a;
+}
+.cm-s-ipython span.cm-variable-3 {
+  color: #333333;
+}
+.cm-s-ipython span.cm-comment {
+  color: #408080;
+  font-style: italic;
+}
+.cm-s-ipython span.cm-string {
+  color: #BA2121;
+}
+.cm-s-ipython span.cm-string-2 {
+  color: #f50;
+}
+.cm-s-ipython span.cm-meta {
+  color: #AA22FF;
+}
+.cm-s-ipython span.cm-qualifier {
+  color: #555;
+}
+.cm-s-ipython span.cm-builtin {
+  color: #008000;
+}
+.cm-s-ipython span.cm-bracket {
+  color: #997;
+}
+.cm-s-ipython span.cm-tag {
+  color: #170;
+}
+.cm-s-ipython span.cm-attribute {
+  color: #00c;
+}
+.cm-s-ipython span.cm-header {
+  color: blue;
+}
+.cm-s-ipython span.cm-quote {
+  color: #090;
+}
+.cm-s-ipython span.cm-link {
+  color: #00c;
+}
+.cm-s-ipython span.cm-error {
+  color: #f00;
+}
+.cm-s-ipython span.cm-tab {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.output_area 
+div.output_area 
+div.output_area img,
+div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.output_area img.unconfined,
+div.output_area svg.unconfined {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+.output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.output_area pre {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.output_javascript:empty {
+  padding: 0;
+}
+.js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+input.raw_input:focus {
+  box-shadow: none;
+}
+p.p-space {
+  margin-bottom: 10px;
+}
+div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+
+
+
+.rendered_html :link {
+  text-decoration: underline;
+}
+.rendered_html :visited {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+.rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+.rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+.rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+.rendered_html h4:first-child {
+  margin-top: 1em;
+}
+.rendered_html h5:first-child {
+  margin-top: 1em;
+}
+.rendered_html h6:first-child {
+  margin-top: 1em;
+}
+
+
+
+
+
+
+
+
+.rendered_html * + ul {
+  margin-top: 1em;
+}
+.rendered_html * + ol {
+  margin-top: 1em;
+}
+
+
+.rendered_html pre,
+
+
+
+.rendered_html tr,
+.rendered_html th,
+
+.rendered_html td,
+
+
+.rendered_html * + table {
+  margin-top: 1em;
+}
+
+.rendered_html * + p {
+  margin-top: 1em;
+}
+
+.rendered_html * + img {
+  margin-top: 1em;
+}
+.rendered_html img,
+
+.rendered_html img.unconfined,
+
+div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.text_cell > div.prompt {
+    display: none;
+  }
+}
+div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  visibility: visible;
+}
+.text_cell.rendered .input_area {
+  display: none;
+}
+.text_cell.rendered 
+.text_cell.unrendered .text_cell_render {
+  display: none;
+}
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.cm-header-1 {
+  font-size: 185.7%;
+}
+.cm-header-2 {
+  font-size: 157.1%;
+}
+.cm-header-3 {
+  font-size: 128.6%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+  font-style: italic;
+}
+.cm-header-6 {
+  font-size: 100%;
+  font-style: italic;
+}
+</style>
+<style type="text/css">.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
+<style type="text/css">
+/* Temporary definitions which will become obsolete with Notebook release 5.0 */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+</style>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-SFGK-zero-intelligence-model">The SFGK zero-intelligence model<a class="anchor-link" href="#The-SFGK-zero-intelligence-model">¶</a></h2><p>In this model due to Smith, Farmer, Gillemot and Krishnamurthy:</p>
+<ul>
+<li><p>Limit orders can be placed at any integer price level $p$ where $-\infty < p < \infty$.</p>
+<ul>
+<li>If worried about negative prices, think of these as being logarithms of the actual price.</li>
+</ul>
+</li>
+<li><p>Limit sell orders may be placed at any level greater than the best bid $B(t)$ at time $t$ and limit buy orders at any level less than the best offer $A(t)$.</p>
+</li>
+<li><p>In particular, just as in real markets, limit orders may be placed inside the spread (if the current spread is greater than one tick).</p>
+</li>
+<li><p>Market orders arrive randomly at rate $\mu$.</p>
+</li>
+<li><p>Limit orders (per price level) arrive at rate $\alpha$.</p>
+</li>
+<li><p>A proportion $\delta$ of existing limit orders is canceled.</p>
+</li>
+<li><p>All market orders and limit orders are for one share.</p>
+</li>
+<li><p>All the order flows are modeled as <strong>independent</strong> Poisson processes.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Analysis-of-the-SFGK-order-book-model">Analysis of the SFGK order book model<a class="anchor-link" href="#Analysis-of-the-SFGK-order-book-model">¶</a></h2><ul>
+<li><p>The SFGK model depends on so few parameters that, even though it is capable of generating complex behavior, it remains amenable to analytical investigation.</p>
+</li>
+<li><p>For example, it is easy to see that the asymptotic book depth far away from the best quote must be given by $\alpha/\delta$.</p>
+</li>
+</ul>
+<p>The argument goes as follows:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Asymptotic-book-depth">Asymptotic book depth<a class="anchor-link" href="#Asymptotic-book-depth">¶</a></h2><ul>
+<li><p>In the steady-state, orders arriving into the book must balance orders leaving the book.</p>
+</li>
+<li><p>Far away from the best quote, the probability of a limit order leaving the book as the result of an execution against a market order is very small.</p>
+</li>
+<li><p>Thus we need only consider new orders arriving balancing existing orders leaving due to cancelation.</p>
+<ul>
+<li>At a given price, for a fixed time interval $\Delta$, the expected number of orders arriving is $\alpha \Delta$ and the expected number of orders canceled is $\delta d\Delta $ where $d$ is the number of shares at the book at that price level.    </li>
+<li>For these to balance, we must have $\alpha \Delta= \delta d\Delta$, or equivalently,
+$$
+d=\frac{\alpha}{\delta}.
+$$</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-r"><pre><span></span>download.file<span class="p">(</span>url<span class="o">=</span><span class="s">"http://mfe.baruch.cuny.edu/wp-content/uploads/2015/01/ziSetup.zip"</span><span class="p">,</span> destfile<span class="o">=</span><span class="s">"ziSetup.zip"</span><span class="p">)</span>
+unzip<span class="p">(</span>zipfile<span class="o">=</span><span class="s">"ziSetup.zip"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="kn">source</span><span class="p">(</span><span class="s">"ziSetup.R"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Initialize-the-book">Initialize the book<a class="anchor-link" href="#Initialize-the-book">¶</a></h1><p>First we have symmetric price level in the books. Then we set each event type to match the case we have discussed. Consider the price change in this way, every time price changing is like met with an external shock. Then the whole book would be different.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [24]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1">#Book setup</span>
+L <span class="o"><-</span> <span class="m">30</span> <span class="c1">#Set number of price levels to be included in iterations</span>
+
+<span class="c1"># Generate initial book</span>
+LL <span class="o"><-</span> <span class="m">1000</span> <span class="c1">#Total number of levels in buy and sell books</span>
+
+<span class="c1"># Initialize book with asymptotic depth of 5 shares</span>
+initializeBook5 <span class="o"><-</span> <span class="kr">function</span><span class="p">()</span>
+<span class="p">{</span>
+  Price <span class="o"><<-</span> <span class="o">-</span>LL<span class="o">:</span>LL    
+  <span class="c1"># Book shape is set to equal long-term average from simulation</span>
+  buySize <span class="o"><<-</span> <span class="kt">c</span><span class="p">(</span><span class="kp">rep</span><span class="p">(</span><span class="m">5</span><span class="p">,</span>LL<span class="m">-8</span><span class="p">),</span><span class="m">5</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="kp">rep</span><span class="p">(</span><span class="m">0</span><span class="p">,</span>LL<span class="m">+1</span><span class="p">))</span>
+  sellSize <span class="o"><<-</span> <span class="kt">c</span><span class="p">(</span><span class="kp">rep</span><span class="p">(</span><span class="m">0</span><span class="p">,</span>LL<span class="p">),</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="kp">rep</span><span class="p">(</span><span class="m">5</span><span class="p">,</span>LL<span class="m">-8</span><span class="p">))</span>
+  book <span class="o"><<-</span> <span class="kt">data.frame</span><span class="p">(</span>Price<span class="p">,</span> buySize<span class="p">,</span> sellSize <span class="p">)</span> 
+  <span class="kr">if</span><span class="p">(</span>logging<span class="o">==</span><span class="bp">T</span><span class="p">){</span>eventLog <span class="o"><<-</span> <span class="kp">as.data.frame</span><span class="p">(</span><span class="kt">matrix</span><span class="p">(</span><span class="m">0</span><span class="p">,</span>nrow<span class="o">=</span>numEvents<span class="p">,</span>ncol<span class="o">=</span><span class="m">2</span><span class="p">))</span>
+  <span class="kp">colnames</span><span class="p">(</span>eventLog<span class="p">)</span><span class="o"><<-</span><span class="kt">c</span><span class="p">(</span><span class="s">"Type"</span><span class="p">,</span><span class="s">"Price"</span><span class="p">)</span>
+  count <span class="o"><<-</span> <span class="m">0</span>
+  eventType <span class="o"><<-</span> <span class="kt">c</span><span class="p">(</span><span class="s">"LB"</span><span class="p">,</span><span class="s">"LS"</span><span class="p">,</span><span class="s">"CB"</span><span class="p">,</span><span class="s">"CS"</span><span class="p">,</span><span class="s">"MB"</span><span class="p">,</span><span class="s">"MS"</span><span class="p">)</span>
+  eventDescr <span class="o"><<-</span> <span class="kc">NA</span><span class="p">}</span>
+<span class="p">}</span>
+initializeBook5<span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Find-the-mid-market">Find the mid market<a class="anchor-link" href="#Find-the-mid-market">¶</a></h1><p>if we want to know how price changes, we need to find the mid price, and naturally its position in the whole market. The following first two blocks does that.</p>
+<p>Book shape is the center "band" part of the book.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [26]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1">#Various utility functions</span>
+bestOffer <span class="o"><-</span> <span class="kr">function</span><span class="p">(){</span><span class="kp">min</span><span class="p">(</span>book<span class="o">$</span>Price<span class="p">[</span>book<span class="o">$</span>sellSize<span class="o">></span><span class="m">0</span><span class="p">])}</span>
+bestBid <span class="o"><-</span> <span class="kr">function</span><span class="p">(){</span><span class="kp">max</span><span class="p">(</span>book<span class="o">$</span>Price<span class="p">[</span>book<span class="o">$</span>buySize<span class="o">></span><span class="m">0</span><span class="p">])}</span>
+spread <span class="o"><-</span> <span class="kr">function</span><span class="p">(){</span>bestOffer<span class="p">()</span><span class="o">-</span>bestBid<span class="p">()}</span>
+mid <span class="o"><-</span> <span class="kr">function</span><span class="p">(){(</span>bestOffer<span class="p">()</span><span class="o">+</span>bestBid<span class="p">())</span><span class="o">/</span><span class="m">2</span><span class="p">}</span>
+
+<span class="c1">#Functions to find mid-market</span>
+bidPosn<span class="o"><-</span><span class="kr">function</span><span class="p">()</span><span class="kp">length</span><span class="p">(</span>book<span class="o">$</span>buySize<span class="p">[</span>book<span class="o">$</span>Price<span class="o"><=</span>bestBid<span class="p">()])</span>
+askPosn<span class="o"><-</span><span class="kr">function</span><span class="p">()</span><span class="kp">length</span><span class="p">(</span>book<span class="o">$</span>sellSize<span class="p">[</span>book<span class="o">$</span>Price<span class="o"><=</span>bestOffer<span class="p">()])</span>
+midPosn<span class="o"><-</span><span class="kr">function</span><span class="p">(){</span><span class="kp">floor</span><span class="p">((</span>bidPosn<span class="p">()</span><span class="o">+</span>askPosn<span class="p">())</span><span class="o">/</span><span class="m">2</span><span class="p">)}</span>
+
+<span class="c1">#Display center of book</span>
+go <span class="o"><-</span> <span class="kr">function</span><span class="p">(){</span>book<span class="p">[(</span>midPosn<span class="p">()</span><span class="m">-20</span><span class="p">)</span><span class="o">:</span><span class="p">(</span>midPosn<span class="p">()</span><span class="m">+20</span><span class="p">),]}</span>
+
+<span class="c1">#Display book shape</span>
+bookShape<span class="o"><-</span><span class="kr">function</span><span class="p">(</span>band<span class="p">){</span><span class="kt">c</span><span class="p">(</span>book<span class="o">$</span>buySize<span class="p">[</span>midPosn<span class="p">()</span><span class="o">+</span><span class="p">(</span><span class="o">-</span>band<span class="o">:</span><span class="m">0</span><span class="p">)],</span>book<span class="o">$</span>sellSize<span class="p">[</span>midPosn<span class="p">()</span><span class="m">+1</span><span class="o">:</span>band<span class="p">])}</span>
+bookPlot<span class="o"><-</span><span class="kr">function</span><span class="p">(</span>band<span class="p">){</span>
+  plot<span class="p">((</span><span class="o">-</span>band<span class="o">:</span>band<span class="p">),</span>bookShape<span class="p">(</span>band<span class="p">),</span>
+       col<span class="o">=</span><span class="s">"red"</span><span class="p">,</span>type<span class="o">=</span><span class="s">"l"</span><span class="p">,</span>xlab<span class="o">=</span><span class="s">"Price"</span><span class="p">,</span>ylab<span class="o">=</span><span class="s">"Quantity"</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="kp">head</span><span class="p">(</span>book<span class="p">)</span>
+<span class="kp">tail</span><span class="p">(</span>book<span class="p">)</span>
+bookPlot<span class="p">(</span><span class="m">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr><th scope="col">Price</th><th scope="col">buySize</th><th scope="col">sellSize</th></tr></thead>
+<tbody>
+<tr><td>-1000</td><td>5    </td><td>0    </td></tr>
+<tr><td> -999</td><td>5    </td><td>0    </td></tr>
+<tr><td> -998</td><td>5    </td><td>0    </td></tr>
+<tr><td> -997</td><td>5    </td><td>0    </td></tr>
+<tr><td> -996</td><td>5    </td><td>0    </td></tr>
+<tr><td> -995</td><td>5    </td><td>0    </td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea ">
+<table>
+<thead><tr><th></th><th scope="col">Price</th><th scope="col">buySize</th><th scope="col">sellSize</th></tr></thead>
+<tbody>
+<tr><th scope="row">1996</th><td> 995</td><td>0   </td><td>5   </td></tr>
+<tr><th scope="row">1997</th><td> 996</td><td>0   </td><td>5   </td></tr>
+<tr><th scope="row">1998</th><td> 997</td><td>0   </td><td>5   </td></tr>
+<tr><th scope="row">1999</th><td> 998</td><td>0   </td><td>5   </td></tr>
+<tr><th scope="row">2000</th><td> 999</td><td>0   </td><td>5   </td></tr>
+<tr><th scope="row">2001</th><td>1000</td><td>0   </td><td>5   </td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA0gAAANICAMAAADKOT/pAAAAM1BMVEUAAABNTU1oaGh8fHyM
+jIyampqnp6eysrK9vb3Hx8fQ0NDZ2dnh4eHp6enw8PD/AAD///89ODILAAAACXBIWXMAABJ0
+AAASdAHeZh94AAAZ+klEQVR4nO3d60IiSRJA4SxARAXk/Z92LC42XgoYKzKu5/uxQ/fuTEWy
+cUYEGtsBwGzNegAgA0ICBBASIICQAAGEBAggJEAAIQECCAkQQEiAAEICBBASIICQAAGEBAgg
+JEAAIQECCAkQQEiAAEICBBASIICQAAGEBAggJEAAIQECCAkQQEiAAEICBBASIICQAAGEBAgg
+JEAAIQECCAkQQEiAAEICBBASIICQAAGEBAggJEAAIQECCAkQQEiAAEICBBASIICQAAGEBAgg
+JEAAIQECCAkQQEiAAEICBBASIICQAAGEBAggJEAAIQECCAkQQEiAAEICBBASIICQAAGEBAgg
+JEAAIQECCAkQQEiAAEICBBASIICQAAGEBAggJEAAIQECCAkQQEiAAEICBBASIICQAAGEBAgg
+JEAAIQECCAkQQEiAAEICBBASIICQAAGEBAggJEAAIQECCAkQQEiAAEICBBASIICQAAGEBAgg
+JEAAIQECCAkQQEiAAIWQGhDMH7ZcPhyDSwCSCAkQQEiAAEICBBASIICQAAGEBAggJEAAIQEC
+CAkQQEiAAEICBBASIICQAAGEBAggJEAAIQECCAkQoB/SZtHa6rXrJQBtiiGd/lj78vQn3Ndd
+LgEY0Q5p3db7w2G3bpselwCMaIc0tP14e98WPS4BGNEO6fKxRT8/vuihzzZ6j+6P910W1nf/
+bJMn0w7p6RLS0OMS7pUPyXqAblRDWj1vXtvLx839+vazDYSUVN7zq4b0+bCttWHf4xLu5V2k
+x+Q9v+brSNvtZrNaHZ9yWN/sKG9IiTfpEYlPzzsbdCVepQckPj0h6Uq8Sg9IfHpC0pV4lR6Q
++PSEpCvxKj0g8ekJSVfiVXpA4tMTkq7Eq/SAxKcnJGWJd+muzGcnJGWZl+mezGcnJGWZl+me
+zGcnJGWZl+mezGcnJGWZl+mezGcnJGWZl+mezGcnJGWZl+mezGcnJG2Zt+m21CcnJG2p1+mm
+1CcnJG2p1+mm1CcnJG2p1+mm1CcnJG2p1+mm1CcnJG2p1+mm1CcnJG2p1+mm1CcnJHWp9+mG
+3OcmJHW5F2pa7nMTkrrcCzUt97kJSV3uhZqW+9yEpC73Qk3LfW5CUpd7oablPjchqcu9UNNy
+n5uQ1OVeqGm5z01I+nJv1JTkpyYkfclXakLyUxOSvuQrNSH5qQlJX/KVmpD81ISkL/lKTUh+
+akLSl3ylJiQ/NSHpS75SE5KfmpAMJN+pX2U/MyEZyL5Uv8l+ZkIykH2pfpP9zIRkIPtS/Sb7
+mQnJQPal+k32MxOSgexL9ZvsZyYkA9mX6jfZz0xIFrJv1U/pT0xIFtKv1Q/pT0xIFtKv1Q/p
+T0xIFtKv1Q/pT0xIFtKv1Q/pT0xIFtKv1Q/pT0xIFtKv1Q/pT0xIJtLv1Tf5z0tIJvIv1lf5
+z0tIJvIv1lf5z0tIJvIv1lf5z0tIJvIv1lf5z0tIJvIv1lf5z0tIJvIv1lf5z0tINvJv1rUC
+pyUkGwVW60qB0xKSjQKrdaXAaQnJRoHVulLgtIRko8BqXSlwWkKyUWC1rhQ4LSHZKLBaVwqc
+lpCMFNitTxXOSkhGKizXRYWzEpKRCst1UeGshGSkwnJdVDgrIRmpsFwXFc5KSEYqLNdFhbMS
+kpEKy3VR4ayEZKXCdp2UOCkhWSmxXkclTkpIVkqs11GJkxKSlRLrdVTipIRkpcR6HZU4KSFZ
+KbFeRyVOSkhWSqzXUYmTEpKZEvt1qHJOQjJTY8GqnJOQzNRYsCrnJCQzNRasyjkJyUyNBaty
+TkIyU2PBqpyTkMzUWLAq5yQkMzUWrMo5CclOjQ2rcUpCMlRjxWqckpAM1VixGqckJEM1VqzG
+KQnJUI0Vq3FKQjJUY8VqnJKQDNVYsRqnJCRLFXaswhlHhGSowpJVOOOIkAxVWLIKZxwRkqEK
+S1bhjCNCMlRhySqccURIhiosWYUzjgjJUIUlq3DGESFZyr9l+U94RkiW8q9Z/hOeEZKl/GuW
+/4RnhGQp/5rlP+EZIVnKv2b5T3hGSJbyr1n+E56ZhNTu/SMIKYv8JzwjJFPZ9yz7+f5RDKl9
+1eMS4WRftOzn+0cxpLeBkL7LvmjZz/eP5kO7/aotd8d/wm//iIcry+T9O+uBZsp2nsfpfo/0
+0trLge+RpkVfvOjz/53ykw27ZVvtCWlS9EWMPv/fqT9r99yGV0KaEn0Ro8//d/pPf28X978H
+KhtS8E2MPf0sFq8jPRHSpNirGHv6WXiLkC+xVzH29LMQki+xVzH29LMQki+xVzH29LMQki+x
+VzH29LMQki+xVzH29LMQkjORdzHy7HMRkjORlzHy7HMRkjORlzHy7HMRkjORlzHy7HMRkjOR
+lzHy7HMRkjORlzHy7HMRkjORlzHy7HMRkjdxtzHu5AIIyZu46xh3cgGE5E3cdYw7uQBC8ibu
+OsadXAAheRN3HeNOLoCQvIm7jnEnF0BI3sRdx7iTCyAkb+KuY9zJBRCSO1H3MercMgjJnagL
+GXVuGYTkTtSFjDq3DEJyJ+pCRp1bBiG5E3Uho84tg5DcibqQUeeWQUjuRF3IqHPLICR/Ym5k
+zKnFEJI/MVcy5tRiCMmfmCsZc2oxhORPzJWMObUYQvIn5krGnFoMIfkTcyVjTi2GkPyJuZIx
+pxZDSA5F3MmIM0siJIciLmXEmSURkkMRlzLizJIIyaGISxlxZkmE5FDEpYw4syRCcijiUkac
+WRIhORRxKSPOLImQPIq3lfEmFkZIHsVby3gTCyMkj+KtZbyJhRGSR/HWMt7EwgjJo3hrGW9i
+YYTkUby1jDexMELyKN5axptYGCG5FG0vo80rj5BciraY0eaVR0guRVvMaPPKIySXoi1mtHnl
+EZJL0RYz2rzyCMmlaIsZbV55hORStMWMNq88QnIp2mJGm1ceIfkUazNjTdsFIfkUazVjTdsF
+IfkUazVjTdsFIfkUazVjTdsFIfkUazVjTdsFIfkUazVjTdsFIfkUazVjTdsFITkVaTcjzdoL
+ITkVaTkjzdoLITkVaTkjzdoLITkVaTkjzdoLITkVaTkjzdoLITkVaTkjzdoLITkVaTkjzdoL
+IXkVZzvjTNoRIXkVZz3jTNoRIXkVZz3jTNoRIXkVZz3jTNoRIXkVZz3jTNoRIXkVZz3jTNoR
+IXkVZz3jTNoRIbkVZT+jzNkXIbkVZUGjzNkXIbkVZUGjzNkXIbkVZUGjzNkXIbkVZUGjzNkX
+IbkVZUGjzNkXIbkVZUGjzNkXIfkVY0NjTNkdIfkVY0VjTNkdIfkVY0VjTNkdIfkVY0VjTNkd
+IfkVY0VjTNkdIfkVY0VjTNkdIfkVY0VjTNkdIfkVY0VjTNkdITkWYUcjzKiBkByLsKQRZtRA
+SI5FWNIIM2ogJMciLGmEGTUQkmMRljTCjBoIybEISxphRg2E5FiEJY0wowZC8sz/lvqfUAkh
+eeZ/Tf1PqISQPPO/pv4nVEJInvlfU/8TKiEkz/yvqf8JlRCSZ/7X1P+ESgxC2gxtsel7iSz8
+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" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [19]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1">#Choose from L whole numbers in (1,...,L) with uniform probability</span>
+pick <span class="o"><-</span> <span class="kr">function</span><span class="p">(</span>m<span class="p">){</span><span class="kp">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span>m<span class="p">,</span><span class="m">1</span><span class="p">)}</span>
+
+<span class="c1"># Switch logging on</span>
+logging <span class="o"><-</span> <span class="bp">T</span>
+
+<span class="c1">#Buy limit order</span>
+limitBuyOrder <span class="o"><-</span> <span class="kr">function</span><span class="p">(</span>price<span class="o">=</span><span class="kc">NA</span><span class="p">){</span>
+  <span class="kr">if</span> <span class="p">(</span><span class="kp">is.na</span><span class="p">(</span>price<span class="p">))</span>
+  <span class="p">{</span>prx <span class="o"><<-</span> <span class="p">(</span>bestOffer<span class="p">()</span><span class="o">-</span>pick<span class="p">(</span>L<span class="p">))}</span>
+  <span class="kr">else</span> prx <span class="o"><<-</span>price  
+  <span class="kr">if</span><span class="p">(</span>logging<span class="o">==</span><span class="bp">T</span><span class="p">){</span>eventLog<span class="p">[</span>count<span class="p">,]</span><span class="o"><<-</span> <span class="kt">c</span><span class="p">(</span><span class="s">"LB"</span><span class="p">,</span>prx<span class="p">)}</span> 
+  book<span class="o">$</span>buySize<span class="p">[</span>book<span class="o">$</span>Price<span class="o">==</span>prx<span class="p">]</span><span class="o"><<-</span>book<span class="o">$</span>buySize<span class="p">[</span>book<span class="o">$</span>Price<span class="o">==</span>prx<span class="p">]</span><span class="m">+1</span><span class="p">}</span> 
+
+<span class="c1">#Sell limit order</span>
+limitSellOrder <span class="o"><-</span> <span class="kr">function</span><span class="p">(</span>price<span class="o">=</span><span class="kc">NA</span><span class="p">){</span>
+  <span class="kr">if</span> <span class="p">(</span><span class="kp">is.na</span><span class="p">(</span>price<span class="p">))</span>
+  <span class="p">{</span>prx <span class="o"><<-</span> <span class="p">(</span>bestBid<span class="p">()</span><span class="o">+</span>pick<span class="p">(</span>L<span class="p">))}</span>
+  <span class="kr">else</span> prx <span class="o"><<-</span>price  
+  <span class="kr">if</span><span class="p">(</span>logging<span class="o">==</span><span class="bp">T</span><span class="p">){</span>eventLog<span class="p">[</span>count<span class="p">,]</span> <span class="o"><<-</span> <span class="kt">c</span><span class="p">(</span><span class="s">"LS"</span><span class="p">,</span>prx<span class="p">)}</span>  
+  book<span class="o">$</span>sellSize<span class="p">[</span>book<span class="o">$</span>Price<span class="o">==</span>prx<span class="p">]</span><span class="o"><<-</span>book<span class="o">$</span>sellSize<span class="p">[</span>book<span class="o">$</span>Price<span class="o">==</span>prx<span class="p">]</span><span class="m">+1</span><span class="p">}</span> 
+
+<span class="c1">#Cancel buy order            </span>
+cancelBuyOrder<span class="o"><-</span><span class="kr">function</span><span class="p">(</span>price<span class="o">=</span><span class="kc">NA</span><span class="p">){</span>
+  <span class="kp">q</span><span class="o"><-</span>pick<span class="p">(</span>nb<span class="p">)</span> 
+  tmp <span class="o"><-</span> <span class="kp">cumsum</span><span class="p">(</span><span class="kp">rev</span><span class="p">(</span>book<span class="o">$</span>buySize<span class="p">))</span>  <span class="c1">#Cumulative buy size from 0</span>
+  posn <span class="o"><-</span> <span class="kp">length</span><span class="p">(</span>tmp<span class="p">[</span>tmp<span class="o">>=</span><span class="kp">q</span><span class="p">])</span> <span class="c1">#gives position in list where cumulative size >q</span>
+  prx <span class="o"><<-</span> book<span class="o">$</span>Price<span class="p">[</span>posn<span class="p">]</span> 
+  <span class="kr">if</span> <span class="p">(</span><span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>price<span class="p">))</span> <span class="p">{</span>prx <span class="o"><<-</span>price<span class="p">}</span> 
+  <span class="kr">if</span><span class="p">(</span>logging<span class="o">==</span><span class="bp">T</span><span class="p">){</span>eventLog<span class="p">[</span>count<span class="p">,]</span><span class="o"><<-</span> <span class="kt">c</span><span class="p">(</span><span class="s">"CB"</span><span class="p">,</span>prx<span class="p">)}</span> 
+  book<span class="o">$</span>buySize<span class="p">[</span>posn<span class="p">]</span><span class="o"><<-</span>book<span class="o">$</span>buySize<span class="p">[</span>posn<span class="p">]</span><span class="m">-1</span><span class="p">}</span>
+
+
+<span class="c1">#Cancel sell order</span>
+cancelSellOrder<span class="o"><-</span><span class="kr">function</span><span class="p">(</span>price<span class="o">=</span><span class="kc">NA</span><span class="p">){</span>
+  <span class="kp">q</span><span class="o"><-</span>pick<span class="p">(</span>ns<span class="p">)</span> 
+  tmp <span class="o"><-</span> <span class="kp">cumsum</span><span class="p">(</span>book<span class="o">$</span>sellSize<span class="p">)</span>  <span class="c1">#Cumulative sell size from 0</span>
+  posn <span class="o"><-</span> <span class="kp">length</span><span class="p">(</span>tmp<span class="p">[</span>tmp<span class="o"><</span><span class="kp">q</span><span class="p">])</span><span class="m">+1</span> 
+  prx <span class="o"><<-</span> book<span class="o">$</span>Price<span class="p">[</span>posn<span class="p">]</span> 
+  <span class="kr">if</span> <span class="p">(</span><span class="o">!</span><span class="kp">is.na</span><span class="p">(</span>price<span class="p">))</span> <span class="p">{</span>prx <span class="o"><<-</span>price<span class="p">}</span>  
+  <span class="kr">if</span><span class="p">(</span>logging<span class="o">==</span><span class="bp">T</span><span class="p">){</span>eventLog<span class="p">[</span>count<span class="p">,]</span><span class="o"><<-</span> <span class="kt">c</span><span class="p">(</span><span class="s">"CS"</span><span class="p">,</span>prx<span class="p">)}</span> 
+  book<span class="o">$</span>sellSize<span class="p">[</span>posn<span class="p">]</span><span class="o"><<-</span>book<span class="o">$</span>sellSize<span class="p">[</span>posn<span class="p">]</span><span class="m">-1</span><span class="p">}</span>
+
+<span class="c1">#Market buy order</span>
+marketBuyOrder <span class="o"><-</span> <span class="kr">function</span><span class="p">(){</span>
+  prx <span class="o"><<-</span> bestOffer<span class="p">()</span> 
+  <span class="kr">if</span><span class="p">(</span>logging<span class="o">==</span><span class="bp">T</span><span class="p">){</span>eventLog<span class="p">[</span>count<span class="p">,]</span><span class="o"><<-</span> <span class="kt">c</span><span class="p">(</span><span class="s">"MB"</span><span class="p">,</span>prx<span class="p">)}</span> 
+  book<span class="o">$</span>sellSize<span class="p">[</span>book<span class="o">$</span>Price<span class="o">==</span>prx<span class="p">]</span><span class="o"><<-</span>book<span class="o">$</span>sellSize<span class="p">[</span>book<span class="o">$</span>Price<span class="o">==</span>prx<span class="p">]</span><span class="m">-1</span><span class="p">}</span>
+
+<span class="c1">#Market sell order</span>
+marketSellOrder <span class="o"><-</span> <span class="kr">function</span><span class="p">(){</span>
+  prx <span class="o"><<-</span> bestBid<span class="p">()</span> 
+  <span class="kr">if</span><span class="p">(</span>logging<span class="o">==</span><span class="bp">T</span><span class="p">){</span>eventLog<span class="p">[</span>count<span class="p">,]</span><span class="o"><<-</span> <span class="kt">c</span><span class="p">(</span><span class="s">"MS"</span><span class="p">,</span>prx<span class="p">)}</span> 
+  book<span class="o">$</span>buySize<span class="p">[</span>book<span class="o">$</span>Price<span class="o">==</span>prx<span class="p">]</span><span class="o"><<-</span>book<span class="o">$</span>buySize<span class="p">[</span>book<span class="o">$</span>Price<span class="o">==</span>prx<span class="p">]</span><span class="m">-1</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [20]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># Generate an event and update the buy and sell books</span>
+<span class="c1">#Note that limit orders may be placed inside the spread</span>
+generateEvent <span class="o"><-</span> <span class="kr">function</span><span class="p">()</span>
+    <span class="p">{</span>
+    nb <span class="o"><<-</span> <span class="kp">sum</span><span class="p">(</span>book<span class="o">$</span>buySize<span class="p">[</span>book<span class="o">$</span>Price<span class="o">>=</span><span class="p">(</span>bestOffer<span class="p">()</span><span class="o">-</span>L<span class="p">)]);</span> <span class="c1"># Number of cancelable buy orders</span>
+    ns <span class="o"><<-</span> <span class="kp">sum</span><span class="p">(</span>book<span class="o">$</span>sellSize<span class="p">[</span>book<span class="o">$</span>Price<span class="o"><=</span><span class="p">(</span>bestBid<span class="p">()</span><span class="o">+</span>L<span class="p">)]);</span> <span class="c1"># Number of cancelable sell orders</span>
+    eventRate <span class="o"><-</span> nb<span class="o">*</span>delta <span class="o">+</span> ns<span class="o">*</span>delta <span class="o">+</span> mu <span class="o">+</span> <span class="m">2</span><span class="o">*</span>L<span class="o">*</span>alpha<span class="p">;</span> 
+    probEvent <span class="o"><-</span> <span class="kt">c</span><span class="p">(</span>L<span class="o">*</span>alpha<span class="p">,</span>L<span class="o">*</span>alpha<span class="p">,</span>nb<span class="o">*</span>delta<span class="p">,</span>ns<span class="o">*</span>delta<span class="p">,</span>mu<span class="o">/</span><span class="m">2</span><span class="p">,</span>mu<span class="o">/</span><span class="m">2</span><span class="p">)</span><span class="o">/</span>eventRate<span class="p">;</span>
+    m <span class="o"><-</span> <span class="kp">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> replace <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> probEvent<span class="p">);</span> <span class="c1">#Choose event type</span>
+    <span class="kr">switch</span><span class="p">(</span>m<span class="p">,</span>
+    		limitBuyOrder<span class="p">(),</span>
+    		limitSellOrder<span class="p">(),</span>
+    		cancelBuyOrder<span class="p">(),</span>
+    		cancelSellOrder<span class="p">(),</span>
+    		marketBuyOrder<span class="p">(),</span>
+    		marketSellOrder<span class="p">()</span>
+    		<span class="p">);</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [27]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># Figure 2: Average book shape (This take some time to run!)</span>
+
+logging <span class="o"><-</span> <span class="bp">F</span> <span class="c1"># Very important for speed!</span>
+
+alpha <span class="o"><-</span> <span class="m">1</span>
+mu <span class="o"><-</span> <span class="m">10</span>
+delta <span class="o"><-</span> <span class="m">1</span><span class="o">/</span><span class="m">5</span> 
+initializeBook5<span class="p">()</span>
+<span class="c1"># Burn in for 1000 events</span>
+<span class="kr">for</span><span class="p">(</span>count <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">){</span>
+  generateEvent<span class="p">()</span>
+<span class="p">}</span>
+numEvents <span class="o"><-</span> <span class="m">100000</span> <span class="c1"># Average over 100,000 events</span>
+<span class="c1"># numEvents <- 10000 # Average over 10,000 events</span>
+avgBookShape <span class="o"><-</span> bookShape<span class="p">(</span><span class="m">20</span><span class="p">)</span><span class="o">/</span>numEvents
+<span class="kr">for</span><span class="p">(</span>count <span class="kr">in</span> <span class="m">2</span><span class="o">:</span>numEvents<span class="p">){</span>
+  generateEvent<span class="p">()</span>
+  avgBookShape <span class="o"><-</span> avgBookShape<span class="o">+</span>bookShape<span class="p">(</span><span class="m">20</span><span class="p">)</span><span class="o">/</span>numEvents
+<span class="p">}</span>
+
+plot<span class="p">(</span><span class="m">-20</span><span class="o">:</span><span class="m">20</span><span class="p">,</span>avgBookShape<span class="p">,</span>main<span class="o">=</span><span class="kc">NA</span><span class="p">,</span>xlab<span class="o">=</span><span class="s">"Relative price"</span><span class="p">,</span>ylab<span class="o">=</span><span class="s">"# Shares"</span><span class="p">,</span> col<span class="o">=</span><span class="s">"red"</span><span class="p">,</span> type<span class="o">=</span><span class="s">"b"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Average book shape over 100,000 events with $\alpha$ = 1, $\mu$ = 10, $\delta$ = 1/5. Note that asymptotic book depth is $\alpha/\delta$ = 5.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>An direct thought is that, what if we only focus on the price change, instead of focusing on the price influence?</p>
+<p>That would be what we will do in the following part. We suppose the current price is given, and we need to figure the probability of price up move.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A-heuristic-asymptotic-analysis">A heuristic asymptotic analysis<a class="anchor-link" href="#A-heuristic-asymptotic-analysis">¶</a></h2><p>Recall the difference equation for $u$</p>
+<p>$$
+u(x+h,y) + u(x,y+h) + u(x-h,y) + u(x,y-h) - 4 u(x,y) = 0.
+$$</p>
+<p>Rewrite the last equation as</p>
+<p>$$
+\frac1{h^2} \left[u(x+h,y) + u(x-h,y) - 2 u(x,y) \right] + \frac1{h^2} \left[u(x,y+h) + u(x,y-h) - 2 u(x,y)\right] = 0.
+$$</p>
+<p>In the limit, as $h \to 0$, the difference equation converges to the Laplace equation</p>
+<p><a name="eq:laplacian"></a>(1)
+$$
+\Delta u = u_{xx} + u_{yy} = 0 
+$$</p>
+<p>with boundary condition $u(x,0) = 1$ and $u(0,y) = 0$.</p>
+<p>Hence, for small $h$, we would expect the solution from PDE is approximately equal to the solution from difference equation.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Boundary-value-problem-for-probability-of-up-move">Boundary value problem for probability of up move<a class="anchor-link" href="#Boundary-value-problem-for-probability-of-up-move">¶</a></h2><p>Denote $\tau_a = \inf\{t \geq 0: q_a(t) = 0\}$ and  $\tau_b = \inf\{t \geq 0: q_b(t) = 0\}$. In other words, $\tau_a$ ($\tau_b$ respectively) is the first time that the ask (bid respectively) side of the book is depleted.</p>
+<p>Let $u(x,y) = P\left[\tau_a \leq \tau_b|q_b = x, q_a = y \right]$. That is, $u$ is the probability that, conditioned on $q_b = x$ and $q_a = y$, the ask side is depleted before the bid side. Consequently, $u$ is the probability that the price moves up.</p>
+<p>Then $u$ satisfies the parital difference equation</p>
+<p>$$
+\mathcal{L} u(x,y) = 0 \quad \Longleftrightarrow \quad u(x+h,y) + u(x,y+h) + u(x-h,y) + u(x,y-h) - 4 u(x,y) = 0, \quad \forall x, y > 0
+$$</p>
+<p>with boundary conditions</p>
+<p>$$
+u(x,0) = 1, \; \forall x \geq 0 \quad \mbox{and} \quad u(0,y) = 0, \; \forall y \geq 0.
+$$</p>
+<p>The solution is given by $\phi$.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Solving-Laplace-equation">Solving Laplace equation<a class="anchor-link" href="#Solving-Laplace-equation">¶</a></h2><p>Rewriting <a href="#eq:laplacian">(1)</a> in polar coordinates $(r,\theta)$ gives</p>
+<p>$$
+\Delta u(x,y) =  \frac{\partial^2 u}{\partial r^2}+\frac 1 r \,\frac{\partial u}{\partial r}+ \frac 1 {r^2}\frac{\partial^2 u}{\partial \theta^2}.
+$$</p>
+<p>Radial symmetry gives $\partial_r u = 0$ so this equation simplifies to</p>
+<p>$$
+\frac{\partial^2 u}{\partial \theta^2} = 0.
+$$</p>
+<p>with solution</p>
+<p>$$
+u(r,\theta)= a \, \theta+ b.
+$$</p>
+<p>Applying the boundary conditions, $u(r,\pi/2)=0$ and $u(r,0) = 1$ gives</p>
+<p>$$
+u(x,y)= u(r,\theta) = 1-\frac 2 \pi \,\theta = 1-\frac 2 \pi \,\arctan \frac{y}{x}=\frac 2 \pi \,\arctan \frac x y.
+$$</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Microprice">Microprice<a class="anchor-link" href="#Microprice">¶</a></h2><p>Now that we have the probability of an up-tick, we may define a quantity which we may consider as an estimate of the efficient price.</p>
+<p>Denote the spread by $s$ and the mid-price by $M_t=(B_t+A_t)/2$.  Then we may define the  <span>* microprice*</span> $S_t$   as</p>
+<p><a name="eq:microprice"></a>(2)
+\begin{eqnarray}
+S_t &=& \mbox{mid-price} + \mbox{half spread} \times \mbox{expected price move} \\
+&=& M_t + \frac s 2 \, \left\{2\,\phi(q_b,q_a)-1\right\}\nonumber\\
+&\approx&M;_t + \frac s 2 \,\left\{\frac 4\pi \,\arctan \frac {q_b} {q_a}-1\right\}.
+\end{eqnarray}</p>
+<ul>
+<li><p>If $q_b \ll q_a$, $S_t \approx M_t- s/2 = B_t$.</p>
+</li>
+<li><p>If $q_b \gg q_a$, $S_t \approx M_t+ s/2 = A_t$.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Order-book-imbalance">Order book imbalance<a class="anchor-link" href="#Order-book-imbalance">¶</a></h2><p>[Lipton, Pesavento and Sotiropoulos]<sup class="reference" id="cite_ref-LPS"><a href="#cite_note-LPS"><span>[</span>6<span>]</span></a></sup> define the <em>order book imbalance</em></p>
+<p>$$
+I = \frac{ q_b-q_a}{q_b+q_a}.
+$$</p>
+<p>In terms of $I$,  the microprice <a href="#eq:microprice">(2)</a> becomes</p>
+<p>\begin{eqnarray}
+S_t &\approx&M;_t + \frac s 2 \,\left\{\frac 4\pi \,\arctan \frac {q_b} {q_a}-1\right\}\\
+&=&M;_t + \frac s 2 \,\frac 4\pi \,\arctan \frac{ q_b-q_a}{q_b+q_a}\\
+&=&M;_t + \frac s 2 \,\frac 4\pi \,\arctan I.
+\end{eqnarray}</p>
+<ul>
+<li><p>We see that book imbalance seems to be the right variable in the sense that $S_t$ is linear in $I$ for small $I$.</p>
+<ul>
+<li>Moreover, $I$ is anti-symmetric in $q_b$ and $q_a$.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Graph-of-microprice-vs-order-book-imbalance">Graph of microprice vs order book imbalance<a class="anchor-link" href="#Graph-of-microprice-vs-order-book-imbalance">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [30]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># Figure 6: Microprice vs order book imbalance </span>
+mPrice <span class="o"><-</span> <span class="kr">function</span><span class="p">(</span>imbalance<span class="p">){</span><span class="m">4</span><span class="o">/</span><span class="kc">pi</span><span class="o">*</span><span class="kp">atan</span><span class="p">(</span>imbalance<span class="p">)}</span>
+curve<span class="p">(</span>mPrice<span class="p">(</span>x<span class="p">),</span>from<span class="o">=</span><span class="m">-1</span><span class="p">,</span>to<span class="o">=</span><span class="m">1</span><span class="p">,</span>col<span class="o">=</span><span class="s">"red"</span><span class="p">,</span>xlab<span class="o">=</span><span class="s">"Imbalance (I)"</span><span class="p">,</span>ylab<span class="o">=</span><span class="s">"Microprice/Half-spread"</span><span class="p">)</span>
+abline<span class="p">(</span>h<span class="o">=</span><span class="m">0</span><span class="p">,</span>lty<span class="o">=</span><span class="m">2</span><span class="p">)</span>
+abline<span class="p">(</span>v<span class="o">=</span><span class="m">0</span><span class="p">,</span>lty<span class="o">=</span><span class="m">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+Lbb+Arc4twAAAABJRU5ErkJggg==" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="References">References<a class="anchor-link" href="#References">¶</a></h3><p><br /></p>
+<div class="reflist" style="list-style-type: decimal;">
+<ol>
+<li id="cite_note-AbergelJedidi"><span class="mw-cite-backlink"><b><a href="#cite_ref-AbergelJedidi">^</a></b></span> Frédéric Abergel and Aymen Jedidi, A Mathematical Approach to Order Book Modeling, <span>* International Journal of Theoretical and Applied Finance*</span>, <span>**16**(5)</span> 1350025-1350040 (2013).</li>
+<li id="cite_note-BouchaudFarmerLillo"><span class="mw-cite-backlink"><b><a href="#cite_ref-BouchaudFarmerLillo">^</a></b></span>   Jean-Philippe Bouchaud, J. Doyne Farmer, and Fabrizio Lillo, How Markets Slowly Digest Changes in Supply and Demand, in <span>* Handbook of Financial Markets: Dynamics and Evolution*</span> 57-156. (2009) available at http://tuvalu.santafe.edu/%7Ejdf/papers/MarketsSlowlyDigest.pdf: Sections 2.2 and 2.9.3.</li>
+<li id="cite_note-ContLarrard"><span class="mw-cite-backlink"><b><a href="#cite_ref-ContLarrard">^</a></b></span>   Rama Cont and Adrien de Larrard, Price dynamics in a Markovian limit order market, <span>* SIAM J. Finan. Math.*</span>,  <span>** 4**</span>(1) 1-25 (2013).</li>
+<li id="cite_note-ContLarrard2"><span class="mw-cite-backlink"><b><a href="#cite_ref-ContLarrard2">^</a></b></span>   Rama Cont and Adrien de Larrard, Order book dynamics in liquid markets: limit theorems and diffusion approximations, <span>* SSRN*</span>, (2011).</li>
+<li id="cite_note-ContStoikovTalreja"><span class="mw-cite-backlink"><b><a href="#cite_ref-ContStoikovTalreja">^</a></b></span>   Rama Cont, Sasha Stoikov and Rishi Talreja, A stochastic model for order book dynamics,
+<span>* Operations Research*</span>,  <span>**58**</span> 549-563 (2010).</li>
+<li id="cite_note-LPS"><span class="mw-cite-backlink"><b><a href="#cite_ref-LPS">^</a></b></span>   Alexander Lipton, Umberto Pesavento, and Michael G Sotiropoulos, Trade arrival dynamics and quote imbalance in a limit order book, <span>* arXiv*</span> (2013).</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-r"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+								</article>
+						</div>
+					</div>
+				</div>
+			</section>
+	</div>
+</div>
+
+				</div>
+			</div>
+
+		<!-- Footer Wrapper -->
+			<div id="footer-wrapper">
+				<!-- Footer -->
+					<section id="footer" class="container">
+						<div class="row">
+							<div class="8u">
+								<section>
+									<header>
+										<h2>Latest articles</h2>
+									</header>
+									<ul class="dates">
+										<li>
+											<span class="date">Dec <strong>31</strong></span>
+											<h3><a href="market.html">Market Forecast for 2018</a></h3>
+											<p>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Market-Forecast">Market Forecast<a class="anchor-link" href="#Market-Forecast">¶</a></h2><p>What should we project for the U.S stocks in 2018, or maybe in 3 years' period? Although Keynes once said that in long-term run every one would die, but we just need to shorten this infinite long term to a certain T, ie, 3 to 5 years.</p>
+<p>We have seem the upward trend for most of the stock market from late 2016 to present. And U.S stocks are showing as well a peaking momentum.</p></p>
+										</li>
+										<li>
+											<span class="date">Nov <strong>30</strong></span>
+											<h3><a href="microstructure.html">SFGK model</a></h3>
+											<p>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-SFGK-zero-intelligence-model">The SFGK zero-intelligence model<a class="anchor-link" href="#The-SFGK-zero-intelligence-model">¶</a></h2><p>In this model due to Smith, Farmer, Gillemot and Krishnamurthy:</p>
+<ul>
+<li><p>Limit orders can be placed at any integer price level $p$ where $-\infty < p < \infty$.</p>
+<ul>
+<li>If worried about negative prices, think of these as being logarithms of the actual price.</li>
+</ul>
+</li>
+<li><p>Limit sell orders may be placed at any level greater than the best bid $B(t)$ at time $t$ and limit buy orders at any level less than the best offer $A(t)$.</p></p>
+										</li>
+										<li>
+											<span class="date">Nov <strong>13</strong></span>
+											<h3><a href="mpk-and-growth.html">MPK and Growth</a></h3>
+											<p>An Obersevation of Global Economy</p>
+										</li>
+										<li>
+											<span class="date">Nov <strong>10</strong></span>
+											<h3><a href="basketball.html">A basketball theory test</a></h3>
+											<p>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Can-33.3%-three-point-beat-50%-2-point?">Can 33.3% three point beat 50% 2 point?<a class="anchor-link" href="#Can-33.3%-three-point-beat-50%-2-point?">¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input"></p>
+										</li>
+									</ul>
+								</section>
+							</div>
+								<div class="4u">
+									<section>
+										<header>
+											<h2>What's this all about?</h2>
+										</header>
+											<img src="/images/timg (1).jpg" class="image image-full" alt="" />
+										<p>
+										How to use economy, data and art to change the world. 
+
+The future is coming and I am ready
+										</p>
+										<footer>
+										</footer>
+									</section>
+								</div>
+						</div>
+						<div class="row">
+							<div class="4u">
+								<section>
+									<header>
+										<h2>Blogroll</h2>
+									</header>
+									<ul class="divided">
+											<li><a href="http://getpelican.com/">Pelican</a></li>
+											<li><a href="http://python.org/">Python.org</a></li>
+											<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+											<li><a href="https://github.com">Github</a></li>
+									</ul>
+								</section>
+							</div>
+							<div class="4u">
+								<section>
+									<header>
+										<h2>Categories</h2>
+									</header>
+									<ul class="divided">
+											<li><a href="/category/posts.html">Posts</a></li>
+											<li><a href="/category/project.html">Project</a></li>
+									</ul>
+								</section>
+							</div>
+							<div class="4u">
+							
+								<section>
+									<header>
+										<h2>Contact</h2>
+									</header>
+									<ul class="social">
+									</ul>
+									<ul class="contact">
+											<li>
+												<h3>Mail</h3>
+												<p><a href="mailto:Victordongy@163.com">Victordongy@163.com</a></p>
+											</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+					</section>
+			</div>
+		<script src="/theme/js/jquery.min.js"></script>
+		<script src="/theme/js/jquery.dropotron.js"></script>
+		<script src="/theme/js/config.js"></script>
+		<script src="/theme/js/skel.min.js"></script>
+		<script src="/theme/js/skel-panels.min.js"></script>
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="/theme/css/ie8.css" /><![endif]-->
+	</body>
+</html>
