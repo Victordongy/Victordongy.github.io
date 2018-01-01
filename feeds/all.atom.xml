@@ -1485,7 +1485,7 @@ TRUE
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [10]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [11]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-r"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;dy2 &lt;span class="o"&gt;&lt;-&lt;/span&gt; dygraph&lt;span class="p"&gt;(&lt;/span&gt;cor&lt;span class="p"&gt;[,&lt;/span&gt;&lt;span class="m"&gt;-10&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; main &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;"Correlation between SP500 and others"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;%&gt;%&lt;/span&gt; 
@@ -1494,8 +1494,8 @@ TRUE
     dyShading&lt;span class="p"&gt;(&lt;/span&gt;from &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;"2007-12-01"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; to &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;"2009-06-01"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; color &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;"#FFE6E6"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;%&gt;%&lt;/span&gt; 
     dyEvent&lt;span class="p"&gt;(&lt;/span&gt;x &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;"2008-09-15"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; label &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;"Fin Crisis"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; labelLoc &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;"top"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; color &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;"red"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;%&gt;%&lt;/span&gt;
     dyLegend&lt;span class="p"&gt;(&lt;/span&gt;width &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;"500"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-saveWidget&lt;span class="p"&gt;(&lt;/span&gt;dy2&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"m1.html"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-display_html&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'&lt;iframe src="m1.html" width="100%" height="450"&gt;&lt;/iframe&gt;'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+saveWidget&lt;span class="p"&gt;(&lt;/span&gt;dy2&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"m2.html"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+display_html&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'&lt;iframe src="m2.html" width="100%" height="450"&gt;&lt;/iframe&gt;'&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1505,7 +1505,7 @@ display_html&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;'&lt;ifram
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_html rendered_html output_subarea "&gt;
-&lt;iframe height="450" src="m1.html" width="100%"&gt;&lt;/iframe&gt;
+&lt;iframe height="450" src="m2.html" width="100%"&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
