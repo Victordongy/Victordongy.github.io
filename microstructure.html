@@ -1202,7 +1202,6 @@ bookPlot<span class="o"><-</span><span class="kr">function</span><span class="p"
        col<span class="o">=</span><span class="s">"red"</span><span class="p">,</span>type<span class="o">=</span><span class="s">"l"</span><span class="p">,</span>xlab<span class="o">=</span><span class="s">"Price"</span><span class="p">,</span>ylab<span class="o">=</span><span class="s">"Quantity"</span><span class="p">)</span>
 <span class="p">}</span>
 <span class="kp">head</span><span class="p">(</span>book<span class="p">)</span>
-<span class="kp">tail</span><span class="p">(</span>book<span class="p">)</span>
 bookPlot<span class="p">(</span><span class="m">20</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1665,6 +1664,24 @@ gJAAAUICBAgJECAkQICQAAFCAgQICRAgJECAkACBf5Z9KlSPhdBiAAAAAElFTkSuQmCC" />
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Boundary-value-problem-for-probability-of-up-move">Boundary value problem for probability of up move<a class="anchor-link" href="#Boundary-value-problem-for-probability-of-up-move">¶</a></h2><p>Denote $\tau_a = \inf\{t \geq 0: q_a(t) = 0\}$ and  $\tau_b = \inf\{t \geq 0: q_b(t) = 0\}$. In other words, $\tau_a$ ($\tau_b$ respectively) is the first time that the ask (bid respectively) side of the book is depleted.</p>
+<p>Let $u(x,y) = P\left[\tau_a \leq \tau_b|q_b = x, q_a = y \right]$. That is, $u$ is the probability that, conditioned on $q_b = x$ and $q_a = y$, the ask side is depleted before the bid side. Consequently, $u$ is the probability that the price moves up.</p>
+<p>Then $u$ satisfies the parital difference equation</p>
+<p>$$
+\mathcal{L} u(x,y) = 0 \quad \Longleftrightarrow \quad u(x+h,y) + u(x,y+h) + u(x-h,y) + u(x,y-h) - 4 u(x,y) = 0, \quad \forall x, y > 0
+$$</p>
+<p>with boundary conditions</p>
+<p>$$
+u(x,0) = 1, \; \forall x \geq 0 \quad \mbox{and} \quad u(0,y) = 0, \; \forall y \geq 0.
+$$</p>
+<p>The solution is given by $\phi$.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="A-heuristic-asymptotic-analysis">A heuristic asymptotic analysis<a class="anchor-link" href="#A-heuristic-asymptotic-analysis">¶</a></h2><p>Recall the difference equation for $u$</p>
 <p>$$
 u(x+h,y) + u(x,y+h) + u(x-h,y) + u(x,y-h) - 4 u(x,y) = 0.
@@ -1680,24 +1697,6 @@ $$
 $$</p>
 <p>with boundary condition $u(x,0) = 1$ and $u(0,y) = 0$.</p>
 <p>Hence, for small $h$, we would expect the solution from PDE is approximately equal to the solution from difference equation.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Boundary-value-problem-for-probability-of-up-move">Boundary value problem for probability of up move<a class="anchor-link" href="#Boundary-value-problem-for-probability-of-up-move">¶</a></h2><p>Denote $\tau_a = \inf\{t \geq 0: q_a(t) = 0\}$ and  $\tau_b = \inf\{t \geq 0: q_b(t) = 0\}$. In other words, $\tau_a$ ($\tau_b$ respectively) is the first time that the ask (bid respectively) side of the book is depleted.</p>
-<p>Let $u(x,y) = P\left[\tau_a \leq \tau_b|q_b = x, q_a = y \right]$. That is, $u$ is the probability that, conditioned on $q_b = x$ and $q_a = y$, the ask side is depleted before the bid side. Consequently, $u$ is the probability that the price moves up.</p>
-<p>Then $u$ satisfies the parital difference equation</p>
-<p>$$
-\mathcal{L} u(x,y) = 0 \quad \Longleftrightarrow \quad u(x+h,y) + u(x,y+h) + u(x-h,y) + u(x,y-h) - 4 u(x,y) = 0, \quad \forall x, y > 0
-$$</p>
-<p>with boundary conditions</p>
-<p>$$
-u(x,0) = 1, \; \forall x \geq 0 \quad \mbox{and} \quad u(0,y) = 0, \; \forall y \geq 0.
-$$</p>
-<p>The solution is given by $\phi$.</p>
 </div>
 </div>
 </div>
@@ -1958,15 +1957,13 @@ Lbb+Arc4twAAAABJRU5ErkJggg==" />
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="References">References<a class="anchor-link" href="#References">¶</a></h3><p><br /></p>
 <div class="reflist" style="list-style-type: decimal;">
-<ol>
-<li id="cite_note-AbergelJedidi"><span class="mw-cite-backlink"><b><a href="#cite_ref-AbergelJedidi">^</a></b></span> Frédéric Abergel and Aymen Jedidi, A Mathematical Approach to Order Book Modeling, <span>* International Journal of Theoretical and Applied Finance*</span>, <span>**16**(5)</span> 1350025-1350040 (2013).</li>
-<li id="cite_note-BouchaudFarmerLillo"><span class="mw-cite-backlink"><b><a href="#cite_ref-BouchaudFarmerLillo">^</a></b></span>   Jean-Philippe Bouchaud, J. Doyne Farmer, and Fabrizio Lillo, How Markets Slowly Digest Changes in Supply and Demand, in <span>* Handbook of Financial Markets: Dynamics and Evolution*</span> 57-156. (2009) available at http://tuvalu.santafe.edu/%7Ejdf/papers/MarketsSlowlyDigest.pdf: Sections 2.2 and 2.9.3.</li>
-<li id="cite_note-ContLarrard"><span class="mw-cite-backlink"><b><a href="#cite_ref-ContLarrard">^</a></b></span>   Rama Cont and Adrien de Larrard, Price dynamics in a Markovian limit order market, <span>* SIAM J. Finan. Math.*</span>,  <span>** 4**</span>(1) 1-25 (2013).</li>
-<li id="cite_note-ContLarrard2"><span class="mw-cite-backlink"><b><a href="#cite_ref-ContLarrard2">^</a></b></span>   Rama Cont and Adrien de Larrard, Order book dynamics in liquid markets: limit theorems and diffusion approximations, <span>* SSRN*</span>, (2011).</li>
-<li id="cite_note-ContStoikovTalreja"><span class="mw-cite-backlink"><b><a href="#cite_ref-ContStoikovTalreja">^</a></b></span>   Rama Cont, Sasha Stoikov and Rishi Talreja, A stochastic model for order book dynamics,
-<span>* Operations Research*</span>,  <span>**58**</span> 549-563 (2010).</li>
-<li id="cite_note-LPS"><span class="mw-cite-backlink"><b><a href="#cite_ref-LPS">^</a></b></span>   Alexander Lipton, Umberto Pesavento, and Michael G Sotiropoulos, Trade arrival dynamics and quote imbalance in a limit order book, <span>* arXiv*</span> (2013).</li>
-</ol>
+<p>1) Frédéric Abergel and Aymen Jedidi, A Mathematical Approach to Order Book Modeling, <span>* International Journal of Theoretical and Applied Finance*</span>, <span>**16**(5)</span> 1350025-1350040 (2013).</p>
+<p>2) Jean-Philippe Bouchaud, J. Doyne Farmer, and Fabrizio Lillo, How Markets Slowly Digest Changes in Supply and Demand, in <span>* Handbook of Financial Markets: Dynamics and Evolution*</span> 57-156. (2009) available at <a href="http://tuvalu.santafe.edu/%7Ejdf/papers/MarketsSlowlyDigest.pdf">http://tuvalu.santafe.edu/%7Ejdf/papers/MarketsSlowlyDigest.pdf</a>: Sections 2.2 and 2.9.3</p>
+<p>3) Rama Cont and Adrien de Larrard, Price dynamics in a Markovian limit order market, <span>* SIAM J. Finan. Math.*</span>,  <span>** 4**</span>(1) 1-25 (2013)</p>
+<p>4) Rama Cont and Adrien de Larrard, Order book dynamics in liquid markets: limit theorems and diffusion approximations, <span>* SSRN*</span>, (2011)</p>
+<p>5) Rama Cont, Sasha Stoikov and Rishi Talreja, A stochastic model for order book dynamics,
+<span>* Operations Research*</span>,  <span>**58**</span> 549-563 (2010)</p>
+<p>6) Alexander Lipton, Umberto Pesavento, and Michael G Sotiropoulos, Trade arrival dynamics and quote imbalance in a limit order book, <span>* arXiv*</span> (2013)</p>
 </div>
 </div>
 </div>
