@@ -1051,7 +1051,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [16]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="kn">library</span><span class="p">(</span>dplyr<span class="p">)</span>
@@ -1068,7 +1068,7 @@ h6:hover .anchor-link {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [2]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span>ticker <span class="o"><-</span> <span class="kt">c</span><span class="p">(</span><span class="s">"XLY"</span><span class="p">,</span> <span class="s">"XLP"</span><span class="p">,</span> <span class="s">"XLE"</span><span class="p">,</span>    <span class="s">"XLF"</span><span class="p">,</span> <span class="s">"XLV"</span><span class="p">,</span>   
@@ -1087,7 +1087,7 @@ etf_ticker_sector <span class="o"><-</span> <span class="kt">data_frame</span><s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [13]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># A function to build an xts object of etf returns.</span>
@@ -1108,8 +1108,24 @@ etf_returns <span class="o"><-</span> <span class="kp">do.call</span><span class
 etf_returns
 
 <span class="p">}</span>
-etf_returns <span class="o"><-</span> etf_weekly_returns<span class="p">(</span>etf_ticker_sector<span class="o">$</span>ticker<span class="p">)</span>
+etf_returns <span class="o"><-</span> <span class="kp">suppressWarnings</span><span class="p">(</span>etf_weekly_returns<span class="p">(</span>etf_ticker_sector<span class="o">$</span>ticker<span class="p">))</span>
 </pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>pausing 1 second between requests for more than 5 symbols
+pausing 1 second between requests for more than 5 symbols
+pausing 1 second between requests for more than 5 symbols
+pausing 1 second between requests for more than 5 symbols
+pausing 1 second between requests for more than 5 symbols
+pausing 1 second between requests for more than 5 symbols
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -1129,7 +1145,7 @@ dy <span class="o"><-</span> dygraph<span class="p">(</span>cum_etf_re<span clas
     dyAxis<span class="p">(</span><span class="s">"y"</span><span class="p">,</span> label <span class="o">=</span> <span class="s">"Cum_Return"</span><span class="p">)</span> <span class="o">%>%</span> 
     dyRangeSelector<span class="p">(</span>height <span class="o">=</span> <span class="m">20</span><span class="p">)</span> <span class="o">%>%</span>
     dyLegend<span class="p">(</span>width <span class="o">=</span> <span class="s">"500"</span><span class="p">)</span>
-htmlwidgets<span class="o">::</span>saveWidget<span class="p">(</span>dy<span class="p">,</span> <span class="s">"m.html"</span><span class="p">)</span>
+<span class="c1">#htmlwidgets::saveWidget(dy, "m.html")</span>
 display_html<span class="p">(</span><span class="s">'<iframe src="m.html" width="100%" height="450"></iframe>'</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1449,7 +1465,7 @@ AAAASUVORK5CYII=" />
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [9]:</div>
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span>cum_etf_re <span class="o"><-</span> etf_returns<span class="p">[</span><span class="s">"2014-01-01/2014-12-31"</span><span class="p">]</span>
@@ -1481,7 +1497,7 @@ display_html<span class="p">(</span><span class="s">'<iframe src="m1.html" width
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [10]:</div>
+<div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># A function that calculates the rolling correlation between a sector ETF and the SPY SP500 ETF. </span>
@@ -1532,7 +1548,7 @@ TRUE
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [12]:</div>
+<div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span>dy2 <span class="o"><-</span> dygraph<span class="p">(</span>cor<span class="p">[,</span><span class="m">-10</span><span class="p">],</span> main <span class="o">=</span> <span class="s">"Correlation between SP500 and others"</span><span class="p">)</span> <span class="o">%>%</span> 
