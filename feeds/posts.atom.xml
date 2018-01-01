@@ -6717,8 +6717,11 @@ DvCcbQO+/wAAAABJRU5ErkJggg==
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;We remember from the basic theory the stochastic process&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;For any $0 \leq s &lt; t$, the random variable $B_t - B_s$ is normally distributed with mean 0 and variance $t-s$, i.e., for any $a&lt;b$, $$ p[a \leq b_t - b_s \leq b]="\frac{1}{\sqrt{2\pi(t-s)}}\int_a^b" e^{-\frac{x^2}{2(t-s)}}dx. $$&amp;lt; li&gt;
+&lt;li&gt;For any $0 \leq s &lt; t$, the random variable $B_t - B_s$ is normally distributed with mean 0 and variance $t-s$, i.e., for any $a&lt;b$,&amp;lt; li&gt;
 &lt;/ul&gt;
+&lt;p&gt;$$
+ P[a \leq B_t - B_s \leq b] = \frac{1}{\sqrt{2\pi(t-s)}}\int_a^b e^{-\frac{x^2}{2(t-s)}}dx.
+$$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;$B_t$ has independent increment, i.e., for any $0\leq t_1 &lt; t_2 &lt; \cdots &lt; t_n$, the random variables
 $$
@@ -7710,8 +7713,11 @@ h6:hover .anchor-link {
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;We remember from the basic theory the stochastic process&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;For any $0 \leq s &lt; t$, the random variable $B_t - B_s$ is normally distributed with mean 0 and variance $t-s$, i.e., for any $a&lt;b$, $$ p[a \leq b_t - b_s \leq b]="\frac{1}{\sqrt{2\pi(t-s)}}\int_a^b" e^{-\frac{x^2}{2(t-s)}}dx. $$&amp;lt; li&gt;
+&lt;li&gt;For any $0 \leq s &lt; t$, the random variable $B_t - B_s$ is normally distributed with mean 0 and variance $t-s$, i.e., for any $a&lt;b$,&amp;lt; li&gt;
 &lt;/ul&gt;
+&lt;p&gt;$$
+ P[a \leq B_t - B_s \leq b] = \frac{1}{\sqrt{2\pi(t-s)}}\int_a^b e^{-\frac{x^2}{2(t-s)}}dx.
+$$&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;$B_t$ has independent increment, i.e., for any $0\leq t_1 &lt; t_2 &lt; \cdots &lt; t_n$, the random variables
 $$
@@ -8470,7 +8476,7 @@ A stochastic process $X$ of the form&lt;/p&gt;
 &lt;p&gt;$$
 X_t = x + B_t + \int_0^t \mu_s ds \quad \Longleftrightarrow \quad dX_t = dB_t + \mu_t dt
 $$&lt;/p&gt;
-&lt;p&gt;is called a Brownian motion with drift $\mu_t$, where $\mu$ is adapted to the filtration $\F_t$.&lt;/p&gt;
+&lt;p&gt;is called a Brownian motion with drift $\mu_t$, where $\mu$ is adapted to the filtration $F_t$.&lt;/p&gt;
 &lt;h4 id="Remark"&gt;Remark&lt;a class="anchor-link" href="#Remark"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;$X_t$ is a Gaussian process if $\mu_t$ is deterministic. Apparently, the mean function is $E({X_t}) = x + \int_0^t \mu_s ds$ and the covariance function $\gamma(t,s) = cov(X_t,X_s) = \min\{t,s\}$.&lt;/li&gt;
 &lt;/ul&gt;
