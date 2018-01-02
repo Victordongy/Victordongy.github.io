@@ -6717,8 +6717,7 @@ DvCcbQO+/wAAAABJRU5ErkJggg==
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;We remember from the basic theory the stochastic process&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;For any $0 \leq s &lt; t$, the random variable $B_t - B_s$ is normally distributed with mean 0 and variance $t-s$, i.e., for any $
-a&lt;b $,&amp;lt; li&gt;
+&lt;li&gt;For any $0 \leq s &lt; t$, the random variable $B_t - B_s$ is normally distributed with mean 0 and variance $t-s$, i.e., for any $a&lt;b$, also we have&amp;lt; li&gt;
 &lt;/ul&gt;
 &lt;p&gt;$$
  P[a \leq B_t - B_s \leq b] = \frac{1}{\sqrt{2\pi(t-s)}}\int_a^b e^{-\frac{x^2}{2(t-s)}}dx.
@@ -7714,8 +7713,7 @@ h6:hover .anchor-link {
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;We remember from the basic theory the stochastic process&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;For any $0 \leq s &lt; t$, the random variable $B_t - B_s$ is normally distributed with mean 0 and variance $t-s$, i.e., for any $
-a&lt;b $,&amp;lt; li&gt;
+&lt;li&gt;For any $0 \leq s &lt; t$, the random variable $B_t - B_s$ is normally distributed with mean 0 and variance $t-s$, i.e., for any $a&lt;b$, also we have&amp;lt; li&gt;
 &lt;/ul&gt;
 &lt;p&gt;$$
  P[a \leq B_t - B_s \leq b] = \frac{1}{\sqrt{2\pi(t-s)}}\int_a^b e^{-\frac{x^2}{2(t-s)}}dx.
