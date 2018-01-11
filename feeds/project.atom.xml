@@ -4,8 +4,7 @@
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="Deep-Learning-&amp;amp;-Art:-Neural-Style-Transfer"&gt;Deep Learning &amp; Art: Neural Style Transfer&lt;a class="anchor-link" href="#Deep-Learning-&amp;amp;-Art:-Neural-Style-Transfer"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Welcome to the second assignment of this week. In this assignment, you will learn about Neural Style Transfer. This algorithm was created by Gatys et al. (2015) (&lt;a href="https://arxiv.org/abs/1508.06576"&gt;https://arxiv.org/abs/1508.06576&lt;/a&gt;).&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;In this notebook, you will follow my lead to see how deep learning applying to art transfer and make artwork refreshed:&lt;/strong&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;h1 id="Deep-Learning-&amp;amp;-Art:-Neural-Style-Transfer"&gt;Deep Learning &amp; Art: Neural Style Transfer&lt;a class="anchor-link" href="#Deep-Learning-&amp;amp;-Art:-Neural-Style-Transfer"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Welcome to the second assignment of this week. In this assignment, you will learn about Neural Style Transfer. This algorithm was created by Gatys et al. (2015) (&lt;a href="https://arxiv.org/abs/1508.06576"&gt;https://arxiv.org/abs/1508.06576&lt;/a&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -24155,12 +24154,7 @@ What you should remember:&lt;/font&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="Project-Goal"&gt;Project Goal&lt;a class="anchor-link" href="#Project-Goal"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Nowadays there are one seventh grown-ups in the States have diabetes. However, this number would go bigger till 2050 to one third. From the databse about diabete of UCL, I hope at least we could learn well about diabete based on a data analytics perspective.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;h1 id="Project-Goal"&gt;Project Goal&lt;a class="anchor-link" href="#Project-Goal"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Nowadays there are one seventh grown-ups in the States have diabetes. However, this number would go bigger till 2050 to one third. From the databse about diabete of UCL, I hope at least we could learn well about diabete based on a data analytics perspective.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *

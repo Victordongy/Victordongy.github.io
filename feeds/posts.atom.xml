@@ -4,14 +4,7 @@
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="The-SFGK-zero-intelligence-model"&gt;The SFGK zero-intelligence model&lt;a class="anchor-link" href="#The-SFGK-zero-intelligence-model"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In this model due to Smith, Farmer, Gillemot and Krishnamurthy:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Limit orders can be placed at any integer price level $p$ where $-\infty &lt; p &lt; \infty$.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;If worried about negative prices, think of these as being logarithms of the actual price.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Limit sell orders may be placed at any level greater than the best bid $B(t)$ at time $t$ and limit buy orders at any level less than the best offer $A(t)$.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;h2 id="The-SFGK-zero-intelligence-model"&gt;The SFGK zero-intelligence model&lt;a class="anchor-link" href="#The-SFGK-zero-intelligence-model"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In this model due to Smith, Farmer, Gillemot and Krishnamurthy:&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -1955,8 +1948,7 @@ Lbb+Arc4twAAAABJRU5ErkJggg==" /&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Market-Forecast"&gt;Market Forecast&lt;a class="anchor-link" href="#Market-Forecast"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;What should we project for the U.S stocks in 2018, or maybe in 3 years' period? Although Keynes once said that in long-term run every one would die, but we just need to shorten this infinite long term to a certain T, ie, 3 to 5 years.&lt;/p&gt;
-&lt;p&gt;We have seem the upward trend for most of the stock market from late 2016 to present. And U.S stocks are showing as well a peaking momentum.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;h2 id="Market-Forecast"&gt;Market Forecast&lt;a class="anchor-link" href="#Market-Forecast"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;What should we project for the U.S stocks in 2018, or maybe in 3 years' period? Although Keynes once said that in long-term run every one would die, but we just need to shorten this infinite long term to a certain T, ie, 3 to 5 years.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -5361,12 +5353,7 @@ Number of Fisher Scoring iterations: 2
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="Welcome-to-my-blog"&gt;Welcome to my blog&lt;a class="anchor-link" href="#Welcome-to-my-blog"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;I would like to share with you how I think and find about the economic world with logistics, data science and to a certain degree, art.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;h1 id="Welcome-to-my-blog"&gt;Welcome to my blog&lt;a class="anchor-link" href="#Welcome-to-my-blog"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;I would like to share with you how I think and find about the economic world with logistics, data science and to a certain degree, art.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -6715,13 +6702,7 @@ DvCcbQO+/wAAAABJRU5ErkJggg==
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;We remember from the basic theory the stochastic process&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;For any $0 \leq s &lt; t$, the random variable $B_t - B_s$ is normally distributed with mean 0 and variance $t-s$, i.e., for any $a\lt b$, &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
- P[a \leq B_t - B_s \leq b] = \frac{1}{\sqrt{2\pi(t-s)}}\int_a^b e^{-\frac{x^2}{2(t-s)}}dx.
-$$&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;p&gt;We remember from the basic theory the stochastic process&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
