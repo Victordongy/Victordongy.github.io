@@ -1340,7 +1340,7 @@ DvCcbQO+/wAAAABJRU5ErkJggg==
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</content><category term="python firsts"></category></entry><entry><title>Stochastic Process</title><link href="/microstructure2.html" rel="alternate"></link><published>2017-12-01T00:00:00-05:00</published><updated>2017-12-01T00:00:00-05:00</updated><author><name>Victor Dong</name></author><id>tag:None,2017-12-01:/microstructure2.html</id><summary type="html">
+</content><category term="Python"></category><category term="Statistics"></category></entry><entry><title>Stochastic Process</title><link href="/microstructure2.html" rel="alternate"></link><published>2017-12-01T00:00:00-05:00</published><updated>2017-12-01T00:00:00-05:00</updated><author><name>Victor Dong</name></author><id>tag:None,2017-12-01:/microstructure2.html</id><summary type="html">
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
