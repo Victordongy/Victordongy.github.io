@@ -1105,9 +1105,185 @@ $$</li>
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Dimensional-Analysis">Dimensional Analysis<a class="anchor-link" href="#Dimensional-Analysis">¶</a></h1><p>A very useful analysis method in the microstructure is demensional analysis to guess the relationships between model outputs and parameters. In fact, this analysis method was first introduced by Joseph Fourier who argued that the physical quantities with the same kind and same dimension can be compared to each other. This I believe is the essence of dimensional analysis.</p>
+<ul>
+<li>The dimensions of the parameters of the SFGK model are as follows:</li>
+</ul>
+<table>
+<thead><tr>
+<th style="text-align:center">Parameter</th>
+<th style="text-align:center">Dimensions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$\mu$</td>
+<td style="text-align:center">shares/T</td>
+</tr>
+<tr>
+<td style="text-align:center">$\alpha$</td>
+<td style="text-align:center">shares/(ticks T)</td>
+</tr>
+<tr>
+<td style="text-align:center">$\delta$</td>
+<td style="text-align:center">1/T</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Remember that $\mu$ is the arrival rate of Market order, $\alpha$ the limit order arrival rate and $\delta$ the limit order cancelation rate </li>
+<li>In the following we use these parameter dimensions to guess the functional form of relationships between measurable quantities of interest and the input parameters.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Inverse-table">Inverse table<a class="anchor-link" href="#Inverse-table">¶</a></h2><ul>
+<li><p>For convenience, we provide (unique) expressions for dimensions in terms of input parameters.</p>
+</li>
+<li><p>Inverting the previous table gives</p>
+</li>
+</ul>
+<table>
+<thead><tr>
+<th style="text-align:center">Dimensions</th>
+<th style="text-align:center">Parameter combinations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">shares</td>
+<td style="text-align:center">$\mu$ / $\delta$</td>
+</tr>
+<tr>
+<td style="text-align:center">T</td>
+<td style="text-align:center">1 / $\delta$</td>
+</tr>
+<tr>
+<td style="text-align:center">ticks</td>
+<td style="text-align:center">$\mu$ / $\alpha$</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-spread---Diff-between-Best-Bid-and-Ask">The spread - Diff between Best Bid and Ask<a class="anchor-link" href="#The-spread---Diff-between-Best-Bid-and-Ask">¶</a></h2><ul>
+<li><p>The spread has dimensions of $ticks$ and the only combination of parameters with these dimensions is $\mu/\alpha$.</p>
+</li>
+<li><p>Arguing more directly, inside the spread, limit orders are mostly removed by market orders.</p>
+<ul>
+<li><p>The total rate of arrival of limit orders is $2\,\alpha\,s$ where $s$ is the steady-state spread because as explained earlier, buy and sell orders may be placed at all levels at the spread or better.</p>
+</li>
+<li><p>The rate of removal of limit orders is just the rate of market orders $\mu$.</p>
+</li>
+</ul>
+</li>
+<li><p>We deduce that (roughly at least)
+  $$
+  s \sim \frac{\mu}{2\,\alpha}
+  $$</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-slope-of-the-order-book">The slope of the order book<a class="anchor-link" href="#The-slope-of-the-order-book">¶</a></h2><p><h2><img align="center" src="http://d1p9cjl89wwo3v.cloudfront.net/wp-content/uploads/2013/09/figure11.png" width="650" /></h2></p>
+<ul>
+<li>Order book slope is a way of measuring the market liquidity. For example, see the graph above. New IT company has a less steeper order book slope, and thus a less market liquidity. Or put it the other way, when investors have drastical different view on a stock, their view would be reflected on the distribution dispersion of the  limit order. </li>
+<li><p>This quantity has dimensions of $shares$ per $tick$ per $tick$ (the derivative with respect to ticks of the limit order density).</p>
+</li>
+<li><p>The only combination of parameters that has these dimensions is</p>
+<p>$$
+  \frac{\alpha^2}{\mu\,\delta}.
+  $$</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Volatility">Volatility<a class="anchor-link" href="#Volatility">¶</a></h2><ul>
+<li>The variance of the times series of trade prices generated in this model must have dimensions $ticks^2/T$.</li>
+</ul>
+<ul>
+<li><p>Dimensional arguments imply that variance per unit time must therefore be proportional to</p>
+<p>$$
+  \frac{\mu^2\,\delta}{\alpha^2}
+  $$</p>
+</li>
+</ul>
+<ul>
+<li><p>Thus volatility must scale as</p>
+<p>$$
+  \frac{\mu\,\sqrt{\delta}}{\alpha}
+  $$</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Average-quote-size">Average quote size<a class="anchor-link" href="#Average-quote-size">¶</a></h2><ul>
+<li><p>The average quote size $Q$ should be given roughly by the cumulative steady-state inventory $s/2$ ticks away from mid-market where $s$ is the average spread.</p>
+</li>
+<li><p>Thus</p>
+<p>$$
+  Q \sim s^2\,\frac{\alpha^2}{\mu\,\delta} \sim
+  \frac{\mu^2}{\alpha^2}\,\frac{\alpha^2}{\mu\,\delta}=\frac{\mu}{\delta}
+  $$</p>
+<p>as we would expect because once again, ${\mu}/{\delta}$ is the only combination of parameters with dimensions of $shares$.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Market-impact">Market impact<a class="anchor-link" href="#Market-impact">¶</a></h2><p>The most familiar market impact model is $\sigma\,\sqrt{L}$ where $\sigma$ is volatility and the liquidity $L$ is fraction of average daily volume.  In this model, for a given number of shares $n$,</p>
+<p>$$
+L=\frac{n}{\mu}
+$$</p>
+<p>and as shown above</p>
+<p>$$
+\sigma \sim \frac{\mu\,\sqrt{\delta}}{\alpha}
+$$</p>
+<p>Re-expressing that model of market impact in terms of the parameters
+of the SFGK model gives</p>
+<p>$$
+I(n) \sim
+\frac{\mu\,\sqrt{\delta}}{\alpha}\,\sqrt{\frac{n}{\mu}}=\frac{1}{\alpha}\,\sqrt{{\mu\,\delta\,n}}
+$$</p>
+<p>which has the correct dimensions of $ticks$.</p>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [13]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span>download.file<span class="p">(</span>url<span class="o">=</span><span class="s">"http://mfe.baruch.cuny.edu/wp-content/uploads/2015/01/ziSetup.zip"</span><span class="p">,</span> destfile<span class="o">=</span><span class="s">"ziSetup.zip"</span><span class="p">)</span>
@@ -1119,7 +1295,7 @@ unzip<span class="p">(</span>zipfile<span class="o">=</span><span class="s">"ziS
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [14]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="kn">source</span><span class="p">(</span><span class="s">"ziSetup.R"</span><span class="p">)</span>
@@ -1138,7 +1314,7 @@ unzip<span class="p">(</span>zipfile<span class="o">=</span><span class="s">"ziS
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [24]:</div>
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1">#Book setup</span>
@@ -1161,7 +1337,6 @@ initializeBook5 <span class="o"><-</span> <span class="kr">function</span><span 
   eventType <span class="o"><<-</span> <span class="kt">c</span><span class="p">(</span><span class="s">"LB"</span><span class="p">,</span><span class="s">"LS"</span><span class="p">,</span><span class="s">"CB"</span><span class="p">,</span><span class="s">"CS"</span><span class="p">,</span><span class="s">"MB"</span><span class="p">,</span><span class="s">"MS"</span><span class="p">)</span>
   eventDescr <span class="o"><<-</span> <span class="kc">NA</span><span class="p">}</span>
 <span class="p">}</span>
-initializeBook5<span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1178,7 +1353,7 @@ initializeBook5<span class="p">()</span>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [26]:</div>
+<div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1">#Various utility functions</span>
@@ -1201,7 +1376,7 @@ bookPlot<span class="o"><-</span><span class="kr">function</span><span class="p"
   plot<span class="p">((</span><span class="o">-</span>band<span class="o">:</span>band<span class="p">),</span>bookShape<span class="p">(</span>band<span class="p">),</span>
        col<span class="o">=</span><span class="s">"red"</span><span class="p">,</span>type<span class="o">=</span><span class="s">"l"</span><span class="p">,</span>xlab<span class="o">=</span><span class="s">"Price"</span><span class="p">,</span>ylab<span class="o">=</span><span class="s">"Quantity"</span><span class="p">)</span>
 <span class="p">}</span>
-<span class="kp">head</span><span class="p">(</span>book<span class="p">)</span>
+<span class="c1"># book shape before events</span>
 bookPlot<span class="p">(</span><span class="m">20</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1209,38 +1384,6 @@ bookPlot<span class="p">(</span><span class="m">20</span><span class="p">)</span
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_html rendered_html output_subarea ">
-<table>
-<thead><tr><th scope="col">Price</th><th scope="col">buySize</th><th scope="col">sellSize</th></tr></thead>
-<tbody>
-<tr><td>-1000</td><td>5    </td><td>0    </td></tr>
-<tr><td> -999</td><td>5    </td><td>0    </td></tr>
-<tr><td> -998</td><td>5    </td><td>0    </td></tr>
-<tr><td> -997</td><td>5    </td><td>0    </td></tr>
-<tr><td> -996</td><td>5    </td><td>0    </td></tr>
-<tr><td> -995</td><td>5    </td><td>0    </td></tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_html rendered_html output_subarea ">
-<table>
-<thead><tr><th></th><th scope="col">Price</th><th scope="col">buySize</th><th scope="col">sellSize</th></tr></thead>
-<tbody>
-<tr><th scope="row">1996</th><td> 995</td><td>0   </td><td>5   </td></tr>
-<tr><th scope="row">1997</th><td> 996</td><td>0   </td><td>5   </td></tr>
-<tr><th scope="row">1998</th><td> 997</td><td>0   </td><td>5   </td></tr>
-<tr><th scope="row">1999</th><td> 998</td><td>0   </td><td>5   </td></tr>
-<tr><th scope="row">2000</th><td> 999</td><td>0   </td><td>5   </td></tr>
-<tr><th scope="row">2001</th><td>1000</td><td>0   </td><td>5   </td></tr>
-</tbody>
-</table>
-</div>
-</div>
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_png output_subarea ">
@@ -1377,7 +1520,7 @@ AAGEBAggJEAAIQECCAkQQEiAgP8AJUQ+I1aaLAwAAAAASUVORK5CYII=" />
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [19]:</div>
+<div class="prompt input_prompt">In [13]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1">#Choose from L whole numbers in (1,...,L) with uniform probability</span>
@@ -1441,7 +1584,7 @@ marketSellOrder <span class="o"><-</span> <span class="kr">function</span><span 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [20]:</div>
+<div class="prompt input_prompt">In [14]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Generate an event and update the buy and sell books</span>
@@ -1469,7 +1612,7 @@ generateEvent <span class="o"><-</span> <span class="kr">function</span><span cl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [27]:</div>
+<div class="prompt input_prompt">In [15]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># Figure 2: Average book shape (This take some time to run!)</span>
@@ -1504,140 +1647,140 @@ plot<span class="p">(</span><span class="m">-20</span><span class="o">:</span><s
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,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
-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" />
+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" />
 </div>
 </div>
 </div>
