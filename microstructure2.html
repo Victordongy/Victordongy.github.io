@@ -1044,7 +1044,46 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Thoughts-and-Learning-on-Stochastic-Process">Thoughts and Learning on Stochastic Process<a class="anchor-link" href="#Thoughts-and-Learning-on-Stochastic-Process">¶</a></h1>
+<h1 id="Thoughts-on-Stochastic-Process">Thoughts on Stochastic Process<a class="anchor-link" href="#Thoughts-on-Stochastic-Process">¶</a></h1><p>$$
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\supp}{\mathrm{supp}}
+\newcommand{\F}{\mathcal{F} }
+\newcommand{\cF}{\mathcal{F} }
+\newcommand{\E}{\mathbb{E} }
+\newcommand{\Eof}[1]{\mathbb{E}\left[ #1 \right]}
+\def\Cov{{ \mbox{Cov} }}
+\def\Var{{ \mbox{Var} }}
+\newcommand{\1}{\mathbf{1} }
+\newcommand{\p}{\partial}
+\newcommand{\P}{\mathbb{P} }
+\newcommand{\PP}{\mathbb{P} }
+\newcommand{\Pof}[1]{\mathbb{P}\left[ #1 \right]}
+\newcommand{\QQ}{\mathbb{Q} }
+\newcommand{\R}{\mathbb{R} }
+\newcommand{\DD}{\mathbb{D} }
+\newcommand{\HH}{\mathbb{H} }
+\newcommand{\spn}{\mathrm{span} }
+\newcommand{\cov}{\mathrm{cov} }
+\newcommand{\HS}{\mathcal{L}_{\mathrm{HS}} }
+\newcommand{\Hess}{\mathrm{Hess} }
+\newcommand{\trace}{\mathrm{trace} }
+\newcommand{\LL}{\mathcal{L} }
+\newcommand{\s}{\mathcal{S} }
+\newcommand{\ee}{\mathcal{E} }
+\newcommand{\ff}{\mathcal{F} }
+\newcommand{\hh}{\mathcal{H} }
+\newcommand{\bb}{\mathcal{B} }
+\newcommand{\dd}{\mathcal{D} }
+\newcommand{\g}{\mathcal{G} }
+\newcommand{\half}{\frac{1}{2} }
+\newcommand{\T}{\mathcal{T} }
+\newcommand{\bit}{\begin{itemize}}
+\newcommand{\eit}{\end{itemize}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\tr}{\mbox{tr}}
+$$</p>
 </div>
 </div>
 </div>
@@ -1831,6 +1870,77 @@ $$</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Ito-Integral-and-Ito-Formula">Ito Integral and Ito Formula<a class="anchor-link" href="#Ito-Integral-and-Ito-Formula">¶</a></h1><p>Let's start with defining the simple integral as</p>
+<p>$$
+  \int_0^t B_s dB_s.
+$$</p>
+<p>As in the theory of Riemann-Stieltjes integral, we shall start with partitioning the interval $[0,t]$ into, say, $n$ subintervals. Within each subinterval, we pick a point and evaluate the integrand at that point, multiply that value by the increment of the integrator in that subinterval. Then we sum up the results from each subinterval and take limit as the mesh of the partition approaches zero. Possible choices for selecting points from each subinterval  may be, denoting $\Delta B_{t_k} = B_{t_k} - B_{t_{k-1}}$:</p>
+<ul>
+<li>The right point rule:
+  $$
+  R_n = \sum_{k=1}^n B_{t_k} \Delta B_{t_k}
+  $$</li>
+</ul>
+<ul>
+<li>The left point rule:
+  $$
+  L_n = \sum_{k=1}^n B_{t_{k-1}} \Delta B_{t_k}
+  $$</li>
+</ul>
+<ul>
+<li>The midpoint rule:
+  $$
+  M_n = \sum_{k=1}^n B_{t_*} \Delta B_{t_k}, \quad \mbox{ where } t_* = \frac{t_k + t_{k-1}}2
+  $$</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Which-rule-rules?">Which rule rules?<a class="anchor-link" href="#Which-rule-rules?">¶</a></h2><p>From above we have two different expressions for the integral. The point is, Which rule yields convergent integral? in what sense? We knew that it can't be pathwise because the integrator, in this case the Brownian motion, is not of finite variation (because it has nonzero second variation) almost surely.</p>
+<p>Note that the following identities hold.
+\begin{eqnarray*}
+  && R_n - L_n = \sum_{k=1}^n \left( \Delta B_{t_k} \right)^2,  \qquad 
+  R_n + L_n = \sum_{k=1}^n \Delta B_{t_k}^2 = B_t^2.  \\
+\end{eqnarray*}
+Hence,
+\begin{eqnarray*}
+  && R_n = \frac{B_t^2}2 + \frac12 \sum_{k=1}^n \left( \Delta B_{t_k} \right)^2,  \qquad 
+   L_n = \frac{B_t^2}2 - \frac12 \sum_{k=1}^n \left( \Delta B_{t_k} \right)^2.
+\end{eqnarray*}
+Notice that the first term in both expressions is independent of partitions and the second term, as we have seen in previous lecture, will converge to the quadratic variation of Brownian motion in $L^2$ as the mesh approaches zero! Consequently,
+\begin{eqnarray*}
+  && \lim_{\|\Pi_n\|\to0} R_n = \frac{B_t^2}2 + \frac t2,  \qquad
+   \lim_{\|\Pi_n\|\to0} L_n = \frac{B_t^2}2 - \frac t2.
+\end{eqnarray*}</p>
+<p>So we learnt from this simple example that</p>
+<ul>
+<li>The right point rule and the left end point rule yield different "integrals".</li>
+</ul>
+<ul>
+<li>The difference between the "right integral" and the "left integral" is exactly the quadratic variation.</li>
+</ul>
+<ul>
+<li>The convergence is in $L^2$ sense.</li>
+</ul>
+<h4 id="Remark">Remark<a class="anchor-link" href="#Remark">¶</a></h4><ul>
+<li>We need to stick with one specific rule in order to have convergence.</li>
+<li>Ito picked the left end point rule because of adaptivity and martingality.</li>
+<li>$L_n$ is a martingale whereas $R_n$ isn't.</li>
+<li>The midpoint rule leads to the Stratonovich integral.</li>
+<li>What needs to notice is the respective sensitivity of different rules to the first and second order moment as: 
+$E(\frac{B_t^2}2 + \frac t2) = t$ while $E(\frac{B_t^2}2 - \frac t2) = 0$, which is the most difference of the two rules. The following is a little test for this.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Simulation-of-stochastic-integral:-left-endpoint-rule">Simulation of stochastic integral: left endpoint rule<a class="anchor-link" href="#Simulation-of-stochastic-integral:-left-endpoint-rule">¶</a></h1>
 </div>
 </div>
@@ -2251,13 +2361,161 @@ QmCC" />
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Properties-of-Ito-integral">Properties of Ito integral<a class="anchor-link" href="#Properties-of-Ito-integral">¶</a></h2><p>Let $\varphi \in L^2_{ad}$ and, for $t \in [0,T]$,</p>
+<p>$$
+  X_t = \int_0^t \varphi_s dB_s
+$$</p>
+<p>be the stochastic integral of $\varphi_t$ with respect to Brownian motion $B_t$ up to time $t$. Then $X_t$ has the following properties.</p>
+<ul>
+<li><em>Adaptivity</em>:  $X_t \in F_t$ for each $t$.</li>
+</ul>
+<ul>
+<li><em>Martingality</em>: $X_t$ is a martingale.</li>
+</ul>
+<ul>
+<li><em>Ito isometry</em>:
+  $$
+<pre><code>  E[X_t^2] = E\int_0^t \varphi_s^2 ds\; \leftrightsquigarrow \; E\left[\int_0^t \varphi_s dB_s\right]^2 = \int_0^t E[{\varphi_s^2}] ds.
+</code></pre>
+  $$</li>
+</ul>
+<ul>
+<li><em>Quadratic variation</em>:  $[X]_t = \lim_{\parallel{P}\parallel \to 0}\sum_{k=1}^n$ $(X_{t_k} - X_{t_k-1})^2 $ = $\int_0^t \varphi_s^2 ds \leftrightsquigarrow d[X]_t = \varphi_t^2 dt$.</li>
+</ul>
+<ul>
+<li><em>Continuity</em>: $X_t$ is continuous in $t$ a.s.</li>
+</ul>
+<ul>
+<li><p><em>Linearity</em>: Let $\psi_t$ be another adapted process with $E\int_0^T \psi_t^2 dt < \infty$ and $\alpha,\beta \in R$. Then</p>
+<p>$$
+  \int_0^t (\alpha \varphi_s + \beta \psi_s) dB_s = \alpha \int_0^t \varphi_s dB_s + \beta \int_0^t \psi_s dB_s
+  $$</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Ito-Processes">Ito Processes<a class="anchor-link" href="#Ito-Processes">¶</a></h1><h4 id="Definition">Definition<a class="anchor-link" href="#Definition">¶</a></h4><p>An adapted process $X_t$ is called an <em>Ito process</em> if it is of the form</p>
+<p>$$
+  X_t = x + \int_0^t \sigma_s dB_s + \int_0^t b_s ds,
+$$</p>
+<p>where $\sigma_t$ and $b_s$ are adapted processes. We also write it in differential form as</p>
+<p>$$
+  d X_t = \sigma_t dB_t + b_t dt, \quad \mbox{with initial condition } X_0 = x.
+$$</p>
+<p>The coefficient $b_t$ is referred to as the <em>drift</em> (term) and $\sigma_t$ as the <em>diffusion</em> (term) of the Ito process $X_t$.</p>
+<h4 id="Lemma">Lemma<a class="anchor-link" href="#Lemma">¶</a></h4><p>The quadratic variation of the Ito process $X_t$ is</p>
+<p>$$
+  [X]_t = \int_0^t \sigma_s^2 ds \quad \leftrightsquigarrow \quad d[X]_t = \sigma_t^2 dt.
+$$</p>
+<p>Note that</p>
+<ul>
+<li>though the quadratic variation of Brownian motion is deterministic (recall $[B]_t = t$ a.s.), in general the quadratic variation of an Ito process is stochastic;</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Ito's-formula-for-Brownian-motion">Ito's formula for Brownian motion<a class="anchor-link" href="#Ito's-formula-for-Brownian-motion">¶</a></h2><h4 id="Theorem">Theorem<a class="anchor-link" href="#Theorem">¶</a></h4><p>Let $f(t,x)$ be a function with continuous partial derivatives $f_t$, $f_x$, and $f_{xx}$. Let $W_t = W_0 + B_t$ be a Brownian motion starting at $W_0$ (nonrandom). Then, for every $T \geq 0$,</p>
+<p>$$
+  f(T,W_T) - f(0,W_0) = \int_0^T f_x(t,W_t) dW_t + \int_0^T \left[f_t(t,W_t) + \frac12 f_{xx}(t,W_t) \right] dt.
+$$</p>
+<p>Or equivalently in differential form</p>
+<p>$$
+  df(t,W_t) = f_x(t,W_t) dW_t + \left[ f_t(t,W_t) + \frac12 f_{xx}(t,W_t) \right]dt.
+$$</p>
+<h4 id="Remark">Remark<a class="anchor-link" href="#Remark">¶</a></h4><p>The idea is that we Taylor expand $f(t,W_t)$ to second order then formly apply the following rule:</p>
+<p>$$
+ (dB_t)^2 \rightsquigarrow dt, \quad (dt)^2 \rightsquigarrow 0, \quad dB_t dt \rightsquigarrow 0.
+$$</p>
+<h2 id="Ito's-formula-for-Ito-process">Ito's formula for Ito process<a class="anchor-link" href="#Ito's-formula-for-Ito-process">¶</a></h2><p>Let $f(t,x)$ be a function with continuous partial derivatives $f_t$, $f_x$, and $f_{xx}$. Then for every $T \geq 0$,
+\begin{eqnarray*}
+  f(T,X_T) - f(0,x) &=& \int_0^T f_t(t,X_t) dt + \int_0^T f_x(t,X_t) dX_t + \frac12 \int_0^T f_{xx}(t,X_t) d[X]_t  \\
+  &=& \int_0^T f_x(t,X_t) \sigma_t dB_t + \int_0^T \left[f_t + \frac{\sigma_t^2}2 f_{xx} + b_t f_x \right] dt.
+\end{eqnarray*}
+Or in differential form
+\begin{eqnarray*}
+  df(t,X_t) &=& f_t(t,X_t) dt + f_x(t,X_t) dX_t + \frac12 f_{xx}(t,X_t) d[X]_t   \\
+  &=& \sigma_t f_x dB_t + \left[ f_t + \frac{\sigma_t^2}2 f_{xx} + b_t f_x \right] dt
+\end{eqnarray*}</p>
+<h4 id="Remark">Remark<a class="anchor-link" href="#Remark">¶</a></h4><ul>
+<li><p>Ito's formula natually decomposes $f(t,X_t)$ into a drift/finite variation part plus a diffusion/martingale part; reminiscent of the Doob decomposition. Processes consist of a finite variation part and a martingale part are also referred to as <em>semimartingales</em>.</p>
+</li>
+<li><p>Note that the second order differential operator $\frac{\sigma_t^2}2 \partial_x^2 + b_t \partial_x$ in the drift part is the infinitesimal generator of the process $X_t$.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Application-of-Ito's-formula">Application of Ito's formula<a class="anchor-link" href="#Application-of-Ito's-formula">¶</a></h1><p>Using Ito's formula, we could handle with the case of different stochastic integral by decomposing the integral into antiderivative part and a derivative part as : 
+$$
+\int_a^b f(B_t) dB_t = F(B_t)|_{t=a}^b - \frac12 \int_a^b f'(B_t) dt,
+$$
+and 
+$$
+\int_a^b f(t,B_t) dB_t = F(t,B_t)|_{t=a}^b - \int_a^b \left[F_t(t,B_t) + \frac12 f_x(t,B_t)\right] dt,
+$$
+where $F_x = f$, i.e., $F$ is an antiderivative of $f$ with respect to $x$.</p>
+<h3 id="Here-is-two-examples-for-the-application-:">Here is two examples for the application :<a class="anchor-link" href="#Here-is-two-examples-for-the-application-:">¶</a></h3><ul>
+<li><p>Evaluate the stochastic integral $\int_0^t B_s dB_s$. <br /> 
+  Note that in this case $f(x) = x$. Hence an antidrivative of $f$ is $F(x) = \frac{x^2}2$. <br />
+  Apply Ito's formula to $F$ we have</p>
+<p>\begin{eqnarray*}
+  && d F(B_t) = d\left(\frac{B_t^2}2\right) = B_t dB_t + \frac12 dt \\ 
+  &\Longrightarrow& \frac{B_T^2}2 - \frac{B_0^2}2 = \int_0^T B_t dB_t + \frac12 \int_0^T dt \\
+  &\Longrightarrow& \int_0^T B_t dB_t = \frac12(B_T^2 - T)
+  \end{eqnarray*}
+Remember what this is ? Look above on the which rule rules part !</p>
+</li>
+</ul>
+<ul>
+<li><p>Evaluate the stochastic integral $\int_0^t se^{B_s} dB_s$. <br />
+  Note that in this case $f(t,x) = t e^x$. Hence an antidrivative $F$ of $f$ is $F(t,x) = t e^x$.  Notice that the drift part $b_t = 0$<br />
+  Apply Ito's formula to $F$ we have</p>
+<p>\begin{eqnarray*}
+  && d F(t,B_t) = d\left(t e^{B_t} \right) = e^{B_t} dt + te^{B_t} dB_t + \frac12 te^{B_t} dt \\ 
+  &\Longrightarrow& T e^{B_T} = \int_0^T t e^{B_t} dB_t + \int_0^T e^{B_t} \left(1 + \frac t2 \right) dt \\
+  &\Longrightarrow& \int_0^T t e^{B_t} dB_t = T e^{B_T} - \int_0^T e^{B_t} \left(1 + \frac t2 \right) dt
+  \end{eqnarray*}</p>
+</li>
+</ul>
+<h3 id="Ito's-formula-could-also-be-used-to-solve-SDEs-in-:">Ito's formula could also be used to solve SDEs in :<a class="anchor-link" href="#Ito's-formula-could-also-be-used-to-solve-SDEs-in-:">¶</a></h3><ul>
+<li><p><em>Geometric Brownian motion/Black-Scholes model</em></p>
+<p>$dX_t = \mu X_t dt + \sigma X_t dB_t$, where $\mu$ and $\sigma$ are constants.</p>
+<p>To solve it, we apply Ito's formula to $\log X_t$.</p>
+</li>
+</ul>
+<ul>
+<li><p><em>Ornstein-Uhlenbeck process/Vasicek model</em></p>
+<p>$dX_t = \lambda(m - X_t) dt + \sigma dB_t$, where $m$, $\lambda$, and $\sigma$ are constants.</p>
+<p>To solve it, we apply Ito's formula to $e^{\lambda t} X_t$.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Simulation-of-the-Ornstein-Uhlenbeck-process">Simulation of the Ornstein-Uhlenbeck process<a class="anchor-link" href="#Simulation-of-the-Ornstein-Uhlenbeck-process">¶</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [23]:</div>
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># The code simulates the OU process dX = lambda (m - X) dt + sigma dB</span>
@@ -2289,6 +2547,11 @@ dt <span class="o"><-</span> Tfin<span class="o">/</span>NSteps
 <span class="p">}</span>
 
 par<span class="p">(</span>mfrow<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">))</span>
+<span class="c1"># path </span>
+n <span class="o"><-</span> <span class="kp">sample</span><span class="p">(</span>NSim<span class="p">,</span><span class="m">1</span><span class="p">)</span>
+plot<span class="p">(</span>X<span class="p">[</span>n<span class="p">,],</span>type<span class="o">=</span><span class="s">"l"</span><span class="p">)</span>
+lines<span class="p">(</span>X<span class="p">[</span>n<span class="o">+</span><span class="kp">sample</span><span class="p">(</span>NSim<span class="o">-</span>n<span class="p">,</span><span class="m">1</span><span class="p">),],</span>col<span class="o">=</span><span class="s">"purple"</span><span class="p">)</span>
+
 <span class="c1"># histograms at different times</span>
 hist<span class="p">(</span>X<span class="p">[,</span><span class="m">2</span><span class="p">],</span>prob<span class="o">=</span><span class="bp">T</span><span class="p">,</span>col<span class="o">=</span><span class="s">'green'</span><span class="p">,</span>breaks<span class="o">=</span><span class="m">20</span><span class="p">,</span>xlim<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">-.5</span><span class="p">,</span><span class="m">1.2</span><span class="p">))</span>
 hist<span class="p">(</span>X<span class="p">[,</span>NSteps<span class="m">+1</span><span class="p">],</span>prob<span class="o">=</span><span class="bp">T</span><span class="p">,</span>col<span class="o">=</span><span class="s">'red'</span><span class="p">,</span>breaks<span class="o">=</span><span class="m">20</span><span class="p">,</span>add<span class="o">=</span><span class="bp">T</span><span class="p">)</span>
@@ -2310,152 +2573,275 @@ abline<span class="p">(</span>h<span class="o">=</span>sigma<span class="o">^</s
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-BAj8P/jdPzS2U2IMAAAAAElFTkSuQmCC" />
+<img src="data:image/png;base64,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" />
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Connection-to-partial-differential-equation">Connection to partial differential equation<a class="anchor-link" href="#Connection-to-partial-differential-equation">¶</a></h2><p>Stochastic differential equation provides a way to numerically solve second order parabolic partial differential equations by Monte Carlo simulation. The key point is a stochastic representation of the solution to partial differential equations which we develop in the following.</p>
+<p>Let $X_t$ be the diffusion process driven by</p>
+<p>$$
+  dX_t = \mu(X_t,t) dt + \sigma(X_t,t) dW_t.
+$$</p>
+<p>We shall suppress the dependence on $x,t$ of $\mu$ and $\sigma$ for notational simplicity.</p>
+<h4 id="Theorem-1">Theorem 1<a class="anchor-link" href="#Theorem-1">¶</a></h4><p>Let $u = u(x,t)$ be the solution to the terminal value problem</p>
+<p>\begin{eqnarray*}
+  && u_t + \frac{\sigma^2}2 u_{xx} + \mu u_x = 0, \quad t < T, \\
+  && u(x,T) = h(x).  
+\end{eqnarray*}</p>
+<p>Then $u$ has the representation</p>
+<p>$$
+  u(x,t) = \E_{t,x}\left[h(X_T)\right],
+$$</p>
+<p>where $\E_{t,x}[\cdot]$ denotes the conditional expectation $\E[\cdot|X_t = x]$. 
+This theorem is pretty interesting. Because if means you are heading towards the "you" expected from the current you to a certain degree.</p>
+<h4 id="Proof-1">Proof 1<a class="anchor-link" href="#Proof-1">¶</a></h4><p>Based on the theorem we have mentioned above, the proof is relatively direct as : 
+$$ 
+u(X_T,T) - u(X_t,t) = \int_t^T\sigma(X_x,s)u_x(X_s,s)dW_s
+$$
+Then we take conditional expectation \E on both sides considering $ u(x,T) = h(x)$, we have 
+$$
+u(x,t) = E_{t,s}[h(X_T)]
+$$</p>
+<h3 id="Theorem-2-:-Feynman-Kac-formula">Theorem 2 : Feynman-Kac formula<a class="anchor-link" href="#Theorem-2-:-Feynman-Kac-formula">¶</a></h3><p>However, sometimes the terminal value problem might be more complex as : 
+$$
+u_t + \frac{\sigma^2}2 u_{xx} + \mu u_x = V(x,t) u, \quad t < T,  \\
+u(x,T) = h(x).
+$$
+Then $u$ has the representation</p>
+<p>$$
+  u(x,t) = \E_{t,x}\left[e^{-\int_t^T V(X_s,s) ds}h(X_T)\right],
+$$</p>
+<p>where $\E_{t,x}[\cdot]$ denotes the conditional expectation $\E[\cdot|X_t = x]$. This is the celebrated <em>Feynman-Kac formula</em>. Well, the result is a bit more complext than above, but is we see $e^{-\int_t^T V(X_s,s) ds}$ as a discounted rate as in the economics. Then it has a similar form as the above one.</p>
+<h3 id="Proof-2:">Proof 2:<a class="anchor-link" href="#Proof-2:">¶</a></h3><p>Applying Ito's formula to $f(x,t)=u(X_t,t)e^{-\int_0^t V(X_s,s)ds}$ yields</p>
+<p>\begin{eqnarray*}
+  && d\left[ u(X_t,t)e^{-\int_0^t V(X_s,s)ds} \right] \\
+  &=& e^{-\int_0^t V(X_s,s)ds}\left[ u_t(X_t,t) dt - V(X_t,t) u(X_t,t) dt + u_x(X_t,t) dX_t + \frac12 u_{xx}(X_t,t) d[X]_t \right]  \\
+  &=& e^{-\int_0^t V(X_s,s)ds}\left[ \left\{ u_t(X_t,t) + \frac{\sigma^2(X_t,t)}2 u_{xx}(X_t,t) + \mu u_x(X_t,t) - V(X_t,t) u(X_t,t) \right\} dt + \sigma(X_t,t) u_x(X_t,t) dB_t \right]  \\
+  &=& e^{-\int_0^t V(X_s,s)ds} \sigma(X_t,t) u_x(X_t,t) dB_t
+\end{eqnarray*}</p>
+<p>since $u$ satisfies the PDE</p>
+<p>$$
+u_t + \frac{\sigma^2}2 u_{xx} + \mu u_x = V(x,t) u.
+$$</p>
+<p>In integral form</p>
+<p>\begin{eqnarray*}
+  u(X_T,T)e^{-\int_0^T V(X_s,s)ds} - u(X_t,t)e^{-\int_0^t V(X_s,s)ds} &=& \int_t^T e^{-\int_0^\tau V(X_s,s)ds} \sigma(X_\tau,\tau) u_x(X_\tau,\tau) dB_\tau
+\end{eqnarray*}</p>
+<p>therefore, by dividing on both sides the term $e^{-\int_0^t V(X_s,s)ds}$ we have</p>
+<p>\begin{eqnarray*}
+  u(X_T,T)e^{-\int_t^T V(X_s,s)ds} - u(X_t,t) &=& \int_t^T e^{-\int_t^\tau V(X_s,s)ds} \sigma(X_\tau,\tau) u_x(X_\tau,\tau) dB_\tau.
+\end{eqnarray*}
+Don't forget to take expected condition before jumping to the conclusion.
+This theorem, first put forward by Richard Feynman and Marek Kac, is focused on understanding of the extent to which the spectrun allows one to read back the geometry.</p>
+<h2 id="Richard-Phillips-Feynman">Richard Phillips Feynman<a class="anchor-link" href="#Richard-Phillips-Feynman">¶</a></h2><h2><img align="center" src="http://upload.wikimedia.org/wikipedia/en/4/42/Richard_Feynman_Nobel.jpg" width="160" /></h2><p><br />
+It is hard to imagine that Feynman's IQ is slightly above the average that could be defined as smart people range. What I see from him is the consistent passion and concentration for the area he loves. This spirit shapes his greatness and uniqueness and inspires me every moment to think different and walk steady.</p>
+<h2 id="Marek-Kac">Marek Kac<a class="anchor-link" href="#Marek-Kac">¶</a></h2><h2><img align="center" src="http://upload.wikimedia.org/wikipedia/commons/5/56/Mark_Kac.jpg" width="160" /></h2><h3 id="Theorem-3">Theorem 3<a class="anchor-link" href="#Theorem-3">¶</a></h3><p>Let $u = u(x,t)$ be the solution to the terminal value problem</p>
+<p>\begin{eqnarray*}
+  && u_t + \frac{\sigma^2}2 u_{xx} + \mu u_x = f(x,t), \quad t < T,  \\
+  && u(x,T) = h(x).  
+\end{eqnarray*}</p>
+<p>Then $u$ has the representation</p>
+<p>$$
+  u(x,t) = \E_{t,x}\left[h(X_T) - \int_t^T f(X_\tau,\tau) d\tau\right],
+$$</p>
+<p>where $\E_{t,x}[\cdot]$ denotes the conditional expectation $\E[\cdot|X_t = x]$.</p>
+<h3 id="Theorem-4">Theorem 4<a class="anchor-link" href="#Theorem-4">¶</a></h3><p>Let $u = u(x,t)$ be the solution to the terminal value problem</p>
+<p>\begin{eqnarray*}
+  && u_t + \frac{\sigma^2}2 u_{xx} + \mu u_x = V(x,t) u + f(x,t), \quad t < T,  \\
+  && u(x,T) = h(x).  
+\end{eqnarray*}</p>
+<p>Then $u$ has the representation</p>
+<p>$$
+  u(x,t) = \E_{t,x}\left[e^{-\int_t^T V(X_s,s)ds}h(X_T) - \int_t^T e^{-\int_t^\tau V(X_s,s)ds} f(X_\tau,\tau) d\tau\right],
+$$</p>
+<p>where $\E_{t,x}[\cdot] = \E[\cdot|X_t = x]$ is the conditional expectation.</p>
 </div>
 </div>
 </div>
@@ -2539,15 +2925,46 @@ BAj8P/jdPzS2U2IMAAAAAElFTkSuQmCC" />
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Thoughts-and-Learning-on-Stochastic-Process">Thoughts and Learning on Stochastic Process<a class="anchor-link" href="#Thoughts-and-Learning-on-Stochastic-Process">¶</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We remember from the basic theory the stochastic process</p></p>
+<h1 id="Thoughts-on-Stochastic-Process">Thoughts on Stochastic Process<a class="anchor-link" href="#Thoughts-on-Stochastic-Process">¶</a></h1><p>$$
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\supp}{\mathrm{supp}}
+\newcommand{\F}{\mathcal{F} }
+\newcommand{\cF}{\mathcal{F} }
+\newcommand{\E}{\mathbb{E} }
+\newcommand{\Eof}[1]{\mathbb{E}\left[ #1 \right]}
+\def\Cov{{ \mbox{Cov} }}
+\def\Var{{ \mbox{Var} }}
+\newcommand{\1}{\mathbf{1} }
+\newcommand{\p}{\partial}
+\newcommand{\P}{\mathbb{P} }
+\newcommand{\PP}{\mathbb{P} }
+\newcommand{\Pof}[1]{\mathbb{P}\left[ #1 \right]}
+\newcommand{\QQ}{\mathbb{Q} }
+\newcommand{\R}{\mathbb{R} }
+\newcommand{\DD}{\mathbb{D} }
+\newcommand{\HH}{\mathbb{H} }
+\newcommand{\spn}{\mathrm{span} }
+\newcommand{\cov}{\mathrm{cov} }
+\newcommand{\HS}{\mathcal{L}_{\mathrm{HS}} }
+\newcommand{\Hess}{\mathrm{Hess} }
+\newcommand{\trace}{\mathrm{trace} }
+\newcommand{\LL}{\mathcal{L} }
+\newcommand{\s}{\mathcal{S} }
+\newcommand{\ee}{\mathcal{E} }
+\newcommand{\ff}{\mathcal{F} }
+\newcommand{\hh}{\mathcal{H} }
+\newcommand{\bb}{\mathcal{B} }
+\newcommand{\dd}{\mathcal{D} }
+\newcommand{\g}{\mathcal{G} }
+\newcommand{\half}{\frac{1}{2} }
+\newcommand{\T}{\mathcal{T} }
+\newcommand{\bit}{\begin{itemize}}
+\newcommand{\eit}{\end{itemize}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\tr}{\mbox{tr}}
+$$</p></p>
 										</li>
 										<li>
 											<span class="date">Nov <strong>30</strong></span>
