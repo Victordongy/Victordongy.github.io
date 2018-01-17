@@ -2374,12 +2374,10 @@ $$</p>
 <li><em>Martingality</em>: $X_t$ is a martingale.</li>
 </ul>
 <ul>
-<li><p><em>Ito isometry</em>:</p>
-<p>$$</p>
-<pre><code>  E[X_t^2] = E\int_0^t \varphi_s^2 ds\; \leftrightsquigarrow \; E\left[\int_0^t \varphi_s dB_s\right]^2 = \int_0^t E[{\varphi_s^2}] ds.
-</code></pre>
-<p>$$</p>
-</li>
+<li><em>Ito isometry</em>:
+$$
+E[X_t^2] = E\int_0^t \varphi_s^2 ds\; \leftrightsquigarrow \; E\left[\int_0^t \varphi_s dB_s\right]^2 = \int_0^t E[{\varphi_s^2}] ds.
+$$</li>
 </ul>
 <ul>
 <li><em>Quadratic variation</em>:  $[X]_t = \lim_{\parallel{P}\parallel \to 0}\sum_{k=1}^n$ $(X_{t_k} - X_{t_k-1})^2 $ = $\int_0^t \varphi_s^2 ds \leftrightsquigarrow d[X]_t = \varphi_t^2 dt$.</li>
