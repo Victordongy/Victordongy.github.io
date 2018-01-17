@@ -3659,11 +3659,12 @@ $$&lt;/p&gt;
 &lt;li&gt;&lt;em&gt;Martingality&lt;/em&gt;: $X_t$ is a martingale.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;em&gt;Ito isometry&lt;/em&gt;:
-  $$
+&lt;li&gt;&lt;p&gt;&lt;em&gt;Ito isometry&lt;/em&gt;:&lt;/p&gt;
+&lt;p&gt;$$&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;  E[X_t^2] = E\int_0^t \varphi_s^2 ds\; \leftrightsquigarrow \; E\left[\int_0^t \varphi_s dB_s\right]^2 = \int_0^t E[{\varphi_s^2}] ds.
 &lt;/code&gt;&lt;/pre&gt;
-  $$&lt;/li&gt;
+&lt;p&gt;$$&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;Quadratic variation&lt;/em&gt;:  $[X]_t = \lim_{\parallel{P}\parallel \to 0}\sum_{k=1}^n$ $(X_{t_k} - X_{t_k-1})^2 $ = $\int_0^t \varphi_s^2 ds \leftrightsquigarrow d[X]_t = \varphi_t^2 dt$.&lt;/li&gt;
