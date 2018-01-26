@@ -1345,7 +1345,7 @@ DvCcbQO+/wAAAABJRU5ErkJggg==
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Order-flow-Analysis"&gt;Order flow Analysis&lt;a class="anchor-link" href="#Order-flow-Analysis"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We remember how in ZI model mentioned previously that order book dynamics is formed based on the randomness of the limit order and the market order. However, we might doubt whether this model setting really matches the practical condition.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
+&lt;h2 id="Order-flow-Analysis"&gt;Order flow Analysis&lt;a class="anchor-link" href="#Order-flow-Analysis"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We remember how in ZI model mentioned previously that order book dynamics are formed based on the randomness of the limit order and the market order. However, we might doubt whether this model setting really matches the practical condition.&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -2321,7 +2321,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Order-flow-Analysis"&gt;Order flow Analysis&lt;a class="anchor-link" href="#Order-flow-Analysis"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We remember how in ZI model mentioned previously that order book dynamics is formed based on the randomness of the limit order and the market order. However, we might doubt whether this model setting really matches the practical condition.&lt;/p&gt;
+&lt;h2 id="Order-flow-Analysis"&gt;Order flow Analysis&lt;a class="anchor-link" href="#Order-flow-Analysis"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We remember how in ZI model mentioned previously that order book dynamics are formed based on the randomness of the limit order and the market order. However, we might doubt whether this model setting really matches the practical condition.&lt;/p&gt;
 &lt;p&gt;The problem is, do people trade with complete randomness? No matter in which market of the world, any investor facing this question will say no. The most direct example is the herding sequence in the market overheating or overcrashing. Therefore, we might need to reconsider the decriptive model that relates more to the reality.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
