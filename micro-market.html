@@ -1,0 +1,1738 @@
+
+<!DOCTYPE HTML>
+<!--
+	Dopetrope 2.0 by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+			<title>Victor's Blog</title>
+			<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+			<meta charset="utf-8" />
+			<link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Victor's Blog Full Atom Feed" />
+			<link href="/feeds/posts.atom.xml" type="application/atom+xml" rel="alternate" title="Victor's Blog Categories Atom Feed" />
+			<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,300italic" rel="stylesheet" />
+				<link rel="stylesheet" href="/theme/css/pygment.css" />
+			<noscript>
+				<link rel="stylesheet" href="/theme/css/skel-noscript.css" />
+				<link rel="stylesheet" href="/theme/css/style.css" />
+				<link rel="stylesheet" href="/theme/css/style-desktop.css" />
+			</noscript>
+	</head>
+	<body class="no-sidebar">
+		<!-- Header Wrapper -->
+			<div id="header-wrapper">
+				<div class="container">
+					<div class="row">
+						<div class="12u">
+						
+							<!-- Header -->
+								<section id="header">
+									
+									<!-- Logo -->
+									<h1><a href="/">Victor's Blog</a></h1>
+									
+									<!-- Nav -->
+										<nav id="nav">
+											<ul>
+														<li><a href="/pages/Third-Post.html">CV</a></li>
+											</ul>
+										</nav>
+
+								</section>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		<!-- Main Wrapper -->
+			<div id="main-wrapper">
+				<div class="container">
+<div class="row">
+	<div class="12u">
+			<section>
+				<div>
+					<div class="row">
+						<div class="12u skel-cell-mainContent">
+							<!-- Content -->
+								<article class="box is-post">
+									<div class="post-infos">
+										<ul class="tags">
+											<li><a class="button" href="category/posts.html">Posts</a></li>
+												<li><a class="button button-alt" href="tag/micro-market.html">Micro-market</a></li>
+
+										</ul>
+									</div>
+
+									<div class="pennant pennant-alt date">2017-12-30</div>
+									<h2>Order Flow Analysis</h2>
+									<style type="text/css">/*!
+*
+* IPython notebook
+*
+*/
+/* CSS font colors for translated ANSI colors. */
+.ansibold {
+  font-weight: bold;
+}
+/* use dark versions for foreground, to improve visibility */
+.ansiblack {
+  color: black;
+}
+.ansired {
+  color: darkred;
+}
+.ansigreen {
+  color: darkgreen;
+}
+.ansiyellow {
+  color: #c4a000;
+}
+.ansiblue {
+  color: darkblue;
+}
+.ansipurple {
+  color: darkviolet;
+}
+.ansicyan {
+  color: steelblue;
+}
+.ansigray {
+  color: gray;
+}
+/* and light for background, for the same reason */
+.ansibgblack {
+  background-color: black;
+}
+.ansibgred {
+  background-color: red;
+}
+.ansibggreen {
+  background-color: green;
+}
+.ansibgyellow {
+  background-color: yellow;
+}
+.ansibgblue {
+  background-color: blue;
+}
+.ansibgpurple {
+  background-color: magenta;
+}
+.ansibgcyan {
+  background-color: cyan;
+}
+.ansibggray {
+  background-color: gray;
+}
+div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  border-left-width: 1px;
+  padding-left: 5px;
+  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
+}
+div.cell.jupyter-soft-selected {
+  border-left-color: #90CAF9;
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected {
+  border-color: #ababab;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
+}
+@media print {
+  div.cell.selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected.jupyter-soft-selected {
+  border-left-width: 0;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
+}
+.edit_mode div.cell.selected {
+  border-color: #66BB6A;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
+}
+@media print {
+  .edit_mode div.cell.selected {
+    border-color: transparent;
+  }
+}
+.prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .prompt {
+    text-align: left;
+  }
+}
+div.inner_cell {
+  min-width: 0;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.unrecognized_cell > div.prompt {
+    display: none;
+  }
+}
+div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.input_area > div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.input_area > div.highlight > pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the <head> if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+.CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+.CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  padding: 0.4em;
+}
+.CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+.CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
+  /* .CodeMirror-lines */
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Adapted from GitHub theme
+
+*/
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+/* previously not defined, copying from default codemirror */
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+/* apply the same style to codemirror */
+.cm-s-ipython span.cm-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-atom {
+  color: #88F;
+}
+.cm-s-ipython span.cm-number {
+  color: #080;
+}
+.cm-s-ipython span.cm-def {
+  color: #00f;
+}
+.cm-s-ipython span.cm-variable {
+  color: #000;
+}
+.cm-s-ipython span.cm-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-variable-2 {
+  color: #1a1a1a;
+}
+.cm-s-ipython span.cm-variable-3 {
+  color: #333333;
+}
+.cm-s-ipython span.cm-comment {
+  color: #408080;
+  font-style: italic;
+}
+.cm-s-ipython span.cm-string {
+  color: #BA2121;
+}
+.cm-s-ipython span.cm-string-2 {
+  color: #f50;
+}
+.cm-s-ipython span.cm-meta {
+  color: #AA22FF;
+}
+.cm-s-ipython span.cm-qualifier {
+  color: #555;
+}
+.cm-s-ipython span.cm-builtin {
+  color: #008000;
+}
+.cm-s-ipython span.cm-bracket {
+  color: #997;
+}
+.cm-s-ipython span.cm-tag {
+  color: #170;
+}
+.cm-s-ipython span.cm-attribute {
+  color: #00c;
+}
+.cm-s-ipython span.cm-header {
+  color: blue;
+}
+.cm-s-ipython span.cm-quote {
+  color: #090;
+}
+.cm-s-ipython span.cm-link {
+  color: #00c;
+}
+.cm-s-ipython span.cm-error {
+  color: #f00;
+}
+.cm-s-ipython span.cm-tab {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.output_area 
+div.output_area 
+div.output_area img,
+div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.output_area img.unconfined,
+div.output_area svg.unconfined {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+.output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.output_area pre {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.output_javascript:empty {
+  padding: 0;
+}
+.js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+input.raw_input:focus {
+  box-shadow: none;
+}
+p.p-space {
+  margin-bottom: 10px;
+}
+div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+
+
+
+.rendered_html :link {
+  text-decoration: underline;
+}
+.rendered_html :visited {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+.rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+.rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+.rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+.rendered_html h4:first-child {
+  margin-top: 1em;
+}
+.rendered_html h5:first-child {
+  margin-top: 1em;
+}
+.rendered_html h6:first-child {
+  margin-top: 1em;
+}
+
+
+
+
+
+
+
+
+.rendered_html * + ul {
+  margin-top: 1em;
+}
+.rendered_html * + ol {
+  margin-top: 1em;
+}
+
+
+.rendered_html pre,
+
+
+
+.rendered_html tr,
+.rendered_html th,
+
+.rendered_html td,
+
+
+.rendered_html * + table {
+  margin-top: 1em;
+}
+
+.rendered_html * + p {
+  margin-top: 1em;
+}
+
+.rendered_html * + img {
+  margin-top: 1em;
+}
+.rendered_html img,
+
+.rendered_html img.unconfined,
+
+div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.text_cell > div.prompt {
+    display: none;
+  }
+}
+div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  visibility: visible;
+}
+.text_cell.rendered .input_area {
+  display: none;
+}
+.text_cell.rendered 
+.text_cell.unrendered .text_cell_render {
+  display: none;
+}
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.cm-header-1 {
+  font-size: 185.7%;
+}
+.cm-header-2 {
+  font-size: 157.1%;
+}
+.cm-header-3 {
+  font-size: 128.6%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+  font-style: italic;
+}
+.cm-header-6 {
+  font-size: 100%;
+  font-style: italic;
+}
+</style>
+<style type="text/css">.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
+<style type="text/css">
+/* Temporary definitions which will become obsolete with Notebook release 5.0 */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+</style>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Order-flow-Analysis">Order flow Analysis<a class="anchor-link" href="#Order-flow-Analysis">¶</a></h2><p>We remember how in ZI model mentioned previously that order book dynamics is formed based on the randomness of the limit order and the market order. However, we might doubt whether this model setting really matches the practical condition. Do people trade with complete randomness? No matter in which market in the world, any investor facing this question will say no. The most direct example is the herding sequence in the market overheating or overcrashing. Therefore, we might need to reconsider the decriptive model that relates more to the reality.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="kn">source</span><span class="p">(</span><span class="s">"ziSetup.R"</span><span class="p">)</span>
+<span class="c1"># Simulate and generate time series of returns</span>
+alpha <span class="o"><-</span><span class="m">1</span><span class="p">;</span> mu <span class="o"><-</span> <span class="m">10</span><span class="p">;</span> delta <span class="o"><-</span> <span class="m">0.2</span><span class="p">;</span> <span class="c1"># Asymptotic book depth is 5</span>
+numEvents <span class="o"><-</span> <span class="m">10000</span>
+initializeBook5<span class="p">()</span>
+<span class="kr">for</span><span class="p">(</span>count <span class="kr">in</span> <span class="m">1</span><span class="o">:</span>numEvents<span class="p">){</span>generateEvent<span class="p">()}</span>
+
+tradeLog <span class="o"><-</span> eventLog<span class="p">[(</span>eventLog<span class="o">$</span>Type<span class="o">==</span><span class="s">"MB"</span><span class="p">)</span><span class="o">|</span><span class="p">(</span>eventLog<span class="o">$</span>Type<span class="o">==</span><span class="s">"MS"</span><span class="p">),]</span>
+tradeSigns <span class="o"><-</span> <span class="kp">ifelse</span><span class="p">(</span>tradeLog<span class="o">$</span>Type<span class="o">==</span><span class="s">"MB"</span><span class="p">,</span><span class="m">+1</span><span class="p">,</span><span class="m">-1</span><span class="p">)</span>
+someTrades <span class="o"><-</span> <span class="m">1</span><span class="o">:</span><span class="m">100</span>
+<span class="kp">options</span><span class="p">(</span>repr.plot.width<span class="o">=</span><span class="m">6</span><span class="p">,</span> repr.plot.height<span class="o">=</span><span class="m">5</span><span class="p">)</span>
+plot<span class="p">(</span>tradeSigns<span class="p">[</span>someTrades<span class="p">],</span>type<span class="o">=</span><span class="s">"b"</span><span class="p">,</span>col<span class="o">=</span><span class="s">"blue"</span><span class="p">,</span>xlab<span class="o">=</span><span class="kc">NA</span><span class="p">,</span> ylab<span class="o">=</span><span class="s">"Trade Sign"</span><span class="p">,</span>main<span class="o">=</span><span class="s">"ZI trades"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAtAAAAJYCAMAAAB8aiEbAAAAM1BMVEUAAAAAAP9NTU1oaGh8
+fHyMjIyampqnp6eysrK9vb3Hx8fQ0NDZ2dnh4eHp6enw8PD////UNI3wAAAACXBIWXMAABJ0
+AAASdAHeZh94AAAbv0lEQVR4nO2d64KiOhAGI17wLu//tCsgitDptCSwmqn6sUNCkq9h6ngQ
+HXUVQEa4/10AQEoQGrICoSErEBqyAqEhKxAasgKhISsQGrICoSErEBqyAqEhKxAasgKhISsQ
+GrICoSErEBqyAqEhKxAasgKhISsQGrICoSErEBqyAqEhKxAasgKhISsQGrICoSErEBqyAqEh
+KxAasgKhISsQGrICoSErEBqyAqEhKxAasgKhISsQGrICoSErEBqyAqEhKxA6Ka5P03zbvbMt
+MU9tfwNOXlJUoc+F5WwjdBScvKSoQttURegoOHmzcC2cKxH6P8DJm4OHz29yPh+2663rutl/
+3N631+W1nbQr3PrwnHMrC1c8dt32m3v39rjwYfwiCD0H69Znv9D3AZuq2nQXJ+d777nd3Dzm
+1P9NdLu67XoO6CD0DGwePvuFvnOsDndDb1VV3h97772dtI85XbO4b+/q0dXtvuzhPxzNb4HQ
+6dk8H0rla2jXilw/jl+f/ce7u6eqOhXtqFb2W6uyawfe7o/six7IL4LQyXn57Bf6VA37t4/O
+Uzvq3ry1+7bto/XubQr4QOjUbHuXul6hb4+u67HcDO7w9S9LHtcc+3YLpw0gdGLK/lM3r9Bt
+x3Et3LIeCu3aRVu5r4scwy+D0Gkp26dxD3Shj/Xtjt3hIgldvN+Nvh033OYwgdBJKd8fRXWh
+14/L5rdr6OPzGnp4gXHavS8HEpyhlAx8FoS+VSOx20foQ3uX4/i4y1Hf9Dg3PzaN+Y9niL1H
+fxBB6JS4N4ZC1672Xz9sb1d3N+o896HrV1ZOd62vzXPDcvlj+jEQOiW60LvHRXDXe+6e6jXW
+Plrbx97TY2ejcPekkEvoIAidEl3o+sJ4V/V6L3fFi93l2r5UeL23Nv33ctyvNLaPC+nm+nnD
+64RhEBqyAqEhKxAasgKhISsQGrICoSErEBqyAqEhKxAasgKhISsQGrICoSErEBqyAqEhKxAa
+sgKhISsQGrICoSErEBqyAqEhKxAasgKhISsQGrICoSErEBqyAqEhKxAasgKhISsQGrICoSEr
+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
+SUVORK5CYII=" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The code above depicts the trade sign in the ZI model, the trade sign of which is of randomness.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2><img align="center" src="http://mfe.baruch.cuny.edu/wp-content/uploads/2015/01/msftTrades.png" width="800" /></h2><p>However, the trade sign sequence from the real data is similar as the graph above.The graph is also consistent to the finding of $Biais\, Hillion \,and \,Spatt $ :</p>
+<ul>
+<li><p><span> Who note the <span>*diagonal*</span> effect:</span></span></p>
+<ul>
+<li><p>Events with the same sign are more frequent that events
+with different signs.</p>
+</li>
+<li><p>The probability that a given type of order or trade occurs is
+larger after this event has just occurred than it would be
+unconditionally.</p>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Bouchaud,-Mézard-and-Potters">Bouchaud, Mézard and Potters<a class="anchor-link" href="#Bouchaud,-Mézard-and-Potters">¶</a></h3><p>[Bouchaud, Mézard and Potters]<sup class="reference" id="cite_ref-BMP"><a href="#cite_note-BMP"><span>[</span>3<span>]</span></a></sup> present a simple model that explains the empirically-observed shape
+of the typical order book. They assume that</p>
+<ul>
+<li><p>Limit orders arrive at some distance $u$ to the best quote at some
+rate $\lambda(u)$.</p>
+</li>
+<li><p>Limit orders are canceled at the constant rate $\delta(u)$ (constant
+in fact in the BMP version).</p>
+</li>
+<li><p>The stock price diffuses, eating up all of the quantity at the best
+quote as it moves.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Heuristic-derivation-of-the-master-equation">Heuristic derivation of the master equation<a class="anchor-link" href="#Heuristic-derivation-of-the-master-equation">¶</a></h3><ul>
+<li><p>Consider the order density $\rho(u,t)$ on the offered side of the
+book where $u=L-S_t$ is the current distance to the mid-price $S_t$.</p>
+</li>
+<li><p>For fixed $u$, this density will change because:</p>
+<ul>
+<li><p>The stock price $S_t$ moves.</p>
+</li>
+<li><p>Limit orders arrive at rate $\lambda(u)$.</p>
+</li>
+<li><p>Cancelations occur at the proportional rate $\delta(u)$.</p>
+</li>
+</ul>
+</li>
+<li><p>Itô’s formula implies
+$$d\rho(u,t) = {\partial}_S \rho(u,t)\,dS + \frac 12 \,{\partial}_{S,S} \rho(u,t) \,d[S] + \lambda(u)\,dt - \delta(u)\,\rho(u,t)\,dt.$$</p>
+</li>
+<li><p>Assuming arithmetic Brownian motion so that $d[S] = \sigma^2\,dt$,
+we obtain the master equation for the evolution of the expected
+order book density $\hat \rho(u,t)={\mathbb{E} }[\rho(u,t)]$.</p>
+<p><a name="eq:master"></a>(4)
+$$\frac {{\partial}}{{\partial}t}\hat \rho(u,t)=\frac 1 2 \,\sigma^2\,\frac{{\partial}^2}{{\partial}u^2}\hat \rho(u,t)-\delta(u)\,\hat \rho(u,t)+\lambda(u)
+$$</p>
+<p>with the boundary condition $\hat \rho(0,t)=0$.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Steady-state-solution-of-the-master-equation">Steady-state solution of the master equation<a class="anchor-link" href="#Steady-state-solution-of-the-master-equation">¶</a></h3><p>For simplicity, set $\sigma=1$ (we can reinstate later using dimensional
+analysis)</p>
+<p>Denoting the steady state density by $\bar \rho$ and setting the time
+derivative in <a href="#eq:master">(4)</a> to zero, we obtain</p>
+<p><a name="eq:Bouchaud"></a>(5)
+$$\frac 12 \,\bar \rho''(u)-\delta(u)\,\bar \rho(u)+\lambda(u)=0$$</p>
+<p>We can show that the general solution of <a href="#eq:Bouchaud">(5)</a> is of the form</p>
+<p><a name="eq:ansatz"></a>(6)
+$$\rho(\Delta)=f(\Delta)\,\int_0^\Delta\,g(u)\,\lambda(u)\,du+
+g(\Delta)\,\int_\Delta^\infty\,f(u)\,\lambda(u)\,du.
+$$ Substitution into <a href="#eq:Bouchaud">(5)</a> implies that: 
+\begin{eqnarray*}
+\frac{f''(u)}{f(u)}=\frac{g''(u)}{g(u)}&=&2\,\delta(u)\end{eqnarray*}
+with boundary conditions $$g(0)=0;\,f(\infty)=0.$$</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-BMP-steady-state-density">The BMP steady-state density<a class="anchor-link" href="#The-BMP-steady-state-density">¶</a></h3><h4 id="Example-(Constant-cancelation-rate)">Example (Constant cancelation rate)<a class="anchor-link" href="#Example-(Constant-cancelation-rate)">¶</a></h4><p>If $\delta(u)=\delta$, a constant, one solution is given by
+$$f(u)=\sqrt{\frac 2 \delta}\,e^{-\sqrt{2\,\delta}\,u} \text{ and } g(u)=\sinh(\sqrt{2\,\delta} \,u)$$
+which gives us the BMP solution</p>
+<p><a name="eq:bmp"></a>(7)
+\begin{eqnarray*}
+\rho_{BMP}(\Delta)&=&\sqrt{\frac 2 \delta}\,\left\{e^{-\sqrt{2\,\delta}\,\Delta}\,\int_0^\Delta\,\sinh(\sqrt{2\,\delta}\,u)\,\lambda(u)\,du + 
+\sinh(\sqrt{2\,\delta}\,\Delta)\,\int_\Delta^\infty\,e^{-\sqrt{2\,\delta}\,u}\,\lambda(u)\,du\right\}
+\end{eqnarray*}</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Order-book-density-with-constant-cancelation-rate">Order book density with constant cancelation rate<a class="anchor-link" href="#Order-book-density-with-constant-cancelation-rate">¶</a></h3><p>Define the the characteristic distance
+$$\tilde \Delta=\sqrt{\frac{\sigma^2}{2\,\delta}}.$$ Then, reinstating
+$\sigma$, we obtain \begin{eqnarray*}
+\rho_{BMP}(\Delta) &=& \frac{2\,\tilde \Delta}{\sigma^2}\,\left\{e^{-\Delta/{\tilde \Delta}}\,\int_0^\Delta\,\sinh(u/{\tilde \Delta})\,\lambda(u)\,du +
+\sinh(\Delta/{\tilde \Delta})\,\int_\Delta^\infty\,e^{-u/{\tilde \Delta}}\,\lambda(u)\,du\right\}\\
+&=& \frac 1 \delta\,\left\{e^{-\Delta/{\tilde \Delta}}\,\int_0^{\Delta/{\tilde\Delta}}\,\sinh(u)\,\lambda(\tilde\Delta u)\,du +
+\sinh(\Delta/{\tilde \Delta})\,\int_{\Delta/{\tilde\Delta}}^\infty\,e^{-u}\,\lambda(\tilde\Delta u)\,du\right\}.\end{eqnarray*}</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Asymptotics-of-SFGK">Asymptotics of SFGK<a class="anchor-link" href="#Asymptotics-of-SFGK">¶</a></h3><p>Specializing even further to the zero-intelligence SFGK model where
+$\lambda(u)=\lambda$, a constant, we obtain 
+ <a name="eq:ZI"></a>(8)
+\begin{eqnarray*}
+\rho_{BMP}(\Delta) &=& \frac{\lambda}{\delta}\,\left\{e^{-\Delta/{\tilde \Delta}}\,\int_0^{\Delta/{\tilde\Delta}}\,\sinh(u)\,du+
+\sinh(\Delta/{\tilde \Delta})\,\int_{\Delta/{\tilde\Delta}}^\infty\,e^{-u}\,du\right\}\nonumber\\
+&=& \frac{\lambda}{\delta}\,\left\{1 - e^{-\Delta/{\tilde \Delta}}  \right\}
+\end{eqnarray*}</p>
+<p>which is consistent with the asymptotic
+limit $\lambda/\delta$ we derived earlier for the zero-intelligence (ZI)
+model using a physical argument.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>However, based on the empirical data, the researchers(Bouchaud,Mézard and Potters) find that the $\lambda$ is a of a power-law function form with respect to u as :$$\lambda(u)=\frac{\lambda}{u^{1+\mu}},$$ we
+obtain the shape of the order book should depend only on $\mu$ and the
+rescaled distance to best quote $\hat \Delta := \Delta/\tilde \Delta$:</p>
+<p><a name="eq:bookDensityRescaled"></a>(9)
+$$\rho(\hat \Delta) \propto e^{-\hat \Delta}\,\int_0^{\hat \Delta}\,du\,\frac{\sinh(u)}{u^{1+\mu}}+
+\sinh(\hat \Delta)\,\int_{\hat \Delta}^\infty\,du\,\frac{e^{-u}}{u^{1+\mu}}$$</p>
+<p>This shape matches average book shapes
+generated by zero-intelligence simulations very well.</p>
+<p>In the following code, we set $\mu = 1/2$.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># Plot of approximate book density</span>
+<span class="c1"># Density computation</span>
+rho <span class="o"><-</span> <span class="kr">function</span><span class="p">(</span>delhat<span class="p">,</span>mu<span class="p">){</span>
+f1 <span class="o"><-</span> <span class="kr">function</span><span class="p">(</span>u<span class="p">){</span><span class="kp">sinh</span><span class="p">(</span>u<span class="p">)</span><span class="o">/</span>u<span class="o">^</span><span class="p">(</span><span class="m">1</span><span class="o">+</span>mu<span class="p">)};</span>
+tmp1 <span class="o"><-</span>  <span class="kr">if</span><span class="p">(</span>delhat <span class="o"><</span> <span class="m">0.0000001</span><span class="p">)</span> <span class="m">0</span> <span class="kr">else</span> <span class="kp">exp</span><span class="p">(</span><span class="o">-</span>delhat<span class="p">)</span><span class="o">*</span>integrate<span class="p">(</span>f1<span class="p">,</span> lower <span class="o">=</span> <span class="m">0</span><span class="p">,</span> upper <span class="o">=</span> delhat<span class="p">)</span><span class="o">$</span>value<span class="p">;</span>
+f2 <span class="o"><-</span> <span class="kr">function</span><span class="p">(</span>u<span class="p">){</span><span class="kp">exp</span><span class="p">(</span><span class="o">-</span>u<span class="p">)</span><span class="o">/</span>u<span class="o">^</span><span class="p">(</span><span class="m">1</span><span class="o">+</span>mu<span class="p">)};</span>
+tmp2 <span class="o"><-</span> <span class="kr">if</span><span class="p">(</span>delhat <span class="o"><</span> <span class="m">0.0000001</span><span class="p">)</span> <span class="m">0</span> <span class="kr">else</span> <span class="kp">sinh</span><span class="p">(</span>delhat<span class="p">)</span><span class="o">*</span>integrate<span class="p">(</span>f2<span class="p">,</span> lower <span class="o">=</span> delhat<span class="p">,</span> upper <span class="o">=</span> <span class="kc">Inf</span><span class="p">)</span><span class="o">$</span>value<span class="p">;</span>
+<span class="kr">return</span><span class="p">(</span>tmp1<span class="o">+</span>tmp2<span class="p">)</span>
+<span class="p">}</span>
+
+rhov <span class="o"><-</span> <span class="kr">function</span><span class="p">(</span>u<span class="p">,</span>rho<span class="p">){</span><span class="kp">sapply</span><span class="p">(</span>u<span class="p">,</span><span class="kr">function</span><span class="p">(</span>u<span class="p">){</span>rho<span class="p">(</span>u<span class="p">,</span>rho<span class="p">)})}</span>
+
+<span class="c1"># Book shape plot</span>
+curve<span class="p">(</span>rhov<span class="p">(</span>x<span class="p">,</span><span class="m">.5</span><span class="p">),</span>from<span class="o">=</span><span class="m">.0</span><span class="p">,</span>to<span class="o">=</span><span class="m">10</span><span class="p">,</span>col<span class="o">=</span><span class="s">"red"</span><span class="p">,</span>xlab<span class="o">=</span><span class="kp">expression</span><span class="p">(</span>hat<span class="p">(</span>Delta<span class="p">)),</span>ylab<span class="o">=</span><span class="kp">expression</span><span class="p">(</span>rho<span class="p">(</span>hat<span class="p">(</span>Delta<span class="p">))),</span>n<span class="o">=</span><span class="m">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAtAAAAJYCAMAAAB8aiEbAAAAM1BMVEUAAABNTU1oaGh8fHyM
+jIyampqnp6eysrK9vb3Hx8fQ0NDZ2dnh4eHp6enw8PD/AAD///89ODILAAAACXBIWXMAABJ0
+AAASdAHeZh94AAAR6klEQVR4nO3d4XqaMBiG4YCKSgE9/6Odonauq6AhfEnePPePze1aDdqn
+LkY07gwIcbEPAAiJoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGF
+oCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGF
+oCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGF
+oCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGF
+oCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGFoCGF
+oCGFoCGFoCGFoCGFoCGFoCHFO+hh59ymvV8JPxZIhG+KQ+WutrcrIWgkwjfFxh0uVR+qzXgl
+BI1E+KZY3b6wr+qeoJEO3xQfDQ+bzVzQDvDkEaZPzRe1Gx6XNnNBew6B4hkGfXC7+6XebQga
+qzAM+vKs8PGl7cx/DQQNT5ZBn7vt41K/I2iswTTolIaAJoKGFIKGlFhB86QQq0gn6IWr48AV
+Uw5IIWhIIWhIIWhIyTzo08WaB4Lc5B30GDNJ4y/DoD84b/XNIe4lUzS+mZ4+GjjovyFTNO4s
+pxzd7e2EoYZ4qpjHaNzZnj7qmoBDnF5cRslsnxQeXBdsiNPEn1CsfFc5TpN/RKEIGlKyDfq/
+gCkaZ4KGGJ2gKRrnfIP+pV6ChlTQFA2ChhiloCkaBA0tmQb9Il2KLp5W0BRdPIKGFIKGFLGg
+Kbp0eQb9OluCLpxa0BRdOIKGFIKGFLmgKbpsBA0pWQY93SxFl4ygIYWgIUUwaIouGUFDCkFD
+imLQFF2wHIOe7ZWgyyUZNEWXi6AhhaAhRTNoii6WaNAUXSrToL/223EDrG3ztWQIgsZLhkEP
+9dOmbtP7YRE0PBkG3bjqeNszqG+r6f2wlgdN0YUyDLp62gKrc5X/EASNlwyD/mfz2AU7yb6X
+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
+UVv4gBMbV3AkwZsUbCSCznAkwZtE0CWPJHiTCLrkkQRvEkGXPJLgTSLokkcSvEkEXfJIgjeJ
+oEseSfAmEXTJIwneJIIueSTBm0TQJY8keJMIuuSRBG9S9kEDqyBoSCFoSCFoSCFoSCFoSCFo
+SCFoSCFoSCFoSCFoSCFoSCFoSCFoSCFoSCFoSIkSdFO5qpn8TOlQDrXVSBdfJndmt3Nu1xsM
+NBh9mw6Puy3IeDGCvn1Wem0wUjOOVNkUPVQWd2ZrdZP66jbS2j873eMzRsNkESHoL1d1565y
+M5+THkDndsP1EWC3+khXW59Pf/1Ydbnzhu30JiBB7MYxmrXvvEsIt7stUBYRgm5ce/n16Par
+j7S93TqT0C43yGKc45jZML1NUxDO5M47uM19hEBZRAh6667/i3VuazWgSdD993dmVbun3cfW
+dZ9Arfyjc/n5vN9tgbKIELTNj/5fw8zWzWFsXG9xi2p33lfjTGpt+/uUY93/SLufPSy9EwsI
++jD+X7ayvTua3CLnbls1rT/S+XB9VlgdVh+HoD/TVwZzm/F/Spugr08KdwZPQC4/o1frD0TQ
+HxkqiwlHfV1Hswn6OofuDRY9D9cpx+VHZ/WH6OyDrkyD3lisd+/GWY1N0M+/ral214n6sP6P
+zv22BMoi2ipHb7LK0dcbixfVluxD9hm7lUizH51/VjkWZxEh6P34cNYavDZwGcRivmEZ9O3O
+6w1u1+0R02DF+36nBcpC+pVCi+/7E4spR3/dWP0ysz2uPlLjrudVNOs/7mT/SuFldnZl0NrO
+6nHzxmScvdWddz+3Yv2RHndbmCxiBH07jctgILOJwGM4i1Hajc2ddz/7bf1hHndbmCw4HxpS
+CBpSCBpSCBpSCBpSCBpSCBpSCBpSCBpSCBpSCBpSCBpSCBpSCBpSCBpSCBpSCBpSCBpSCBpS
+CBpSCBpSCBpSCBpSCBpSCDqm3jmLz5IsCUHHtLf4QPGyEHRMVV1bbC5REoKO6Mvt9wYfwloU
+go5o5/reaFfQYhB0RNftHmq+A0Fxd8Yz7pq6N/js8pIQdDyb65qd8S4D8ggaUggaUgg6LibQ
+gRF0VL0z2Ia+KAQdVbP+zsOFIeiYhtpg0+6yEHRMTbsdN6NHMAQdU2WzQ3RJCDqiw+GxpTZC
+4e6M6Dp/bnjpOyiCjud4Pbm/52lhUAQdTz2uQW94WhgSQUfT3p4O8rQwKIKOpr6/SFjxLqyA
+CDqWr8dbVRrXRj0QLQQdy9Z944zocAgaUggaUggaUggaUggaUggaUggaUggaUggaUggaUgga
+UggaUggaUggaUggaUggaUggaUggaUggaUggaUggaUggaUggaUggaUggaUggaUggaUggaUgga
+UggaUggaUv4AkIiZT6+/WC4AAAAASUVORK5CYII=" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Power-law-arrival-of-orders">Power-law arrival of orders<a class="anchor-link" href="#Power-law-arrival-of-orders">¶</a></h3><ul>
+<li><p>The Bouchaud et al. and Farmer et al. groups both published papers
+showing that the density of arrival of limit orders into the order
+book is a power-law function of distance $\Delta$ to the best quote.</p>
+</li>
+<li><p>[Mike and Farmer]<sup class="reference" id="cite_ref-MikeFarmer"><a href="#cite_note-MikeFarmer"><span>[</span>6<span>]</span></a></sup> found and described a further beautiful regularity:</p>
+<ul>
+<li><p>The distribution of distance $\Delta$ to the same-side best
+quote looks like Student-$t$.</p>
+</li>
+<li><p>Recall the Student-t distribution:
+$$f(x)=\frac{\Gamma(\frac{\nu+1}{2})}{\sqrt{\nu\,\pi}\,\Gamma(\frac{\nu}{2})}\,\frac{1}{\left(1+\frac{x^2}{\nu}\right)^{\frac{\nu+1}{2}}}\sim \frac{1}{x^{\nu+1}}\text{ as }|x| \to \infty$$
+with $$\Gamma(\alpha) = \int_0^{\infty}\,x^{a-1}\,e^{-x}\,dx$$
+so Student-t with $\nu$ degrees of freedom has <span>*tail
+exponent*</span> $\nu$.</p>
+</li>
+</ul>
+</li>
+<li><p>This means in particular that market orders are less likely when the
+spread is wide than when the spread is narrow.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="References">References<a class="anchor-link" href="#References">¶</a></h3><p><br /></p>
+<div class="reflist" style="list-style-type: decimal;">
+<ol>
+<li id="cite_note-BHS"><span class="mw-cite-backlink"><b><a href="#cite_ref-BHS">^</a></b></span> Bruno Biais, Pierre Hillion, and Chester Spatt, An Empirical Analysis of
+the Limit Order Book and the Order Flow in the Paris Bourse, <span>*The
+Journal of Finance*</span> <span>**50**</span>(5) 1655–1689, 1995.</li>
+<li id="cite_note-BouchaudFarmerLillo"><span class="mw-cite-backlink"><b><a href="#cite_ref-BouchaudFarmerLillo">^</a></b></span>   Jean-Philippe Bouchaud, J. Doyne Farmer, and Fabrizio Lillo, How Markets
+Slowly Digest Changes in Supply and Demand, in <span>*Handbook of
+Financial Markets: Dynamics and Evolution*</span> 57-156. (2009)
+available at
+http://tuvalu.santafe.edu/%7Ejdf/papers/MarketsSlowlyDigest.pdf:
+Sections 2.2 and 2.9.3.</li>
+<li id="cite_note-BMP"><span class="mw-cite-backlink"><b><a href="#cite_ref-BMP">^</a></b></span>   Jean-Philippe Bouchaud, Marc Mézard and Marc Potters, Statistical
+properties of stock order books: empirical results and models,
+<span>*Quantitative Finance*</span> <span>**2**</span>(4) 251–256
+(2002).</li>
+<li id="cite_note-Hasbrouck"><span class="mw-cite-backlink"><b><a href="#cite_ref-Hasbrouck">^</a></b></span>   Joel Hasbrouck, <span>*Empirical Market Microstructure*</span>, Oxford
+University Press, Chapter 12 (2007).</li>
+<li id="cite_note-MikeFarmer"><span class="mw-cite-backlink"><b><a href="#cite_ref-MikeFarmer">^</a></b></span>   Szabolcs Mike and J. Doyne Farmer, An empirical behavioral model of
+liquidity and volatility, <span>*Journal of Economic Dynamics &
+Control*</span> <span>**32**</span> 200–234 (2008).</li>
+<li id="cite_note-Parlour"><span class="mw-cite-backlink"><b><a href="#cite_ref-Parlour">^</a></b></span>   Christine A Parlour, Price dynamics in limit order markets,<span>*The
+Review of Financial Studies*</span> <span>**11**</span>(4) 789–816
+(1998).</li>
+<li id="cite_note-Rosu"><span class="mw-cite-backlink"><b><a href="#cite_ref-Rosu">^</a></b></span>Ioanid Roşu, A dynamic model of the limit order book, <span>*Review of
+Financial Studies*</span> <span>**22**</span>(11) 4601–4641 (2009).</li>
+<li id="cite_note-Rosu"><span class="mw-cite-backlink"><b><a href="#cite_ref-Rosu">^</a></b></span>Lillo F. Limit order placement as an utility maximization problem and the origin of power law distribution of limit order prices[J]. <span>*European Physical Journal B*</span>, 2007, 55(4):453-459.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+								</article>
+						</div>
+					</div>
+				</div>
+			</section>
+	</div>
+</div>
+
+				</div>
+			</div>
+
+		<!-- Footer Wrapper -->
+			<div id="footer-wrapper">
+				<!-- Footer -->
+					<section id="footer" class="container">
+						<div class="row">
+							<div class="8u">
+								<section>
+									<header>
+										<h2>Latest articles</h2>
+									</header>
+									<ul class="dates">
+										<li>
+											<span class="date">Jan <strong>12</strong></span>
+											<h3><a href="welcome.html">Welcome</a></h3>
+											<p>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Welcome-to-my-blog">Welcome to my blog<a class="anchor-link" href="#Welcome-to-my-blog">¶</a></h1><p>I would like to share with you how I think and find about the economic world with logic, statistics and to a certain degree, art.</p></p>
+										</li>
+										<li>
+											<span class="date">Jan <strong>01</strong></span>
+											<h3><a href="data mining.html">Diabetes Mining</a></h3>
+											<p>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Project-Goal">Project Goal<a class="anchor-link" href="#Project-Goal">¶</a></h1><p>Nowadays there are one seventh grown-ups in the United States who have diabetes. However, this number would go larger till 2050 to one third. From the database of diabete of UCL, I hope at least we could learn about diabete based on a data analytics perspective.</p></p>
+										</li>
+										<li>
+											<span class="date">Dec <strong>30</strong></span>
+											<h3><a href="micro-market.html">Order Flow Analysis</a></h3>
+											<p>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Order-flow-Analysis">Order flow Analysis<a class="anchor-link" href="#Order-flow-Analysis">¶</a></h2><p>We remember how in ZI model mentioned previously that order book dynamics is formed based on the randomness of the limit order and the market order. However, we might doubt whether this model setting really matches the practical condition. Do people trade with complete randomness? No matter in which market in the world, any investor facing this question will say no. The most direct example is the herding sequence in the market overheating or overcrashing. Therefore, we might need to reconsider the decriptive model that relates more to the reality.</p></p>
+										</li>
+										<li>
+											<span class="date">Dec <strong>01</strong></span>
+											<h3><a href="microstructure2.html">Stochastic Process</a></h3>
+											<p>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Thoughts-on-Stochastic-Process">Thoughts on Stochastic Process<a class="anchor-link" href="#Thoughts-on-Stochastic-Process">¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We remember from the basic theory the stochastic process</p></p>
+										</li>
+									</ul>
+								</section>
+							</div>
+								<div class="4u">
+									<section>
+										<header>
+											<h2>What's this all about?</h2>
+										</header>
+											<img src="/images/timg (1).jpg" class="image image-full" alt="" />
+										<p>
+										How to use economics, data and art to change the world. 
+
+The future is coming and I am ready
+										</p>
+										<footer>
+										</footer>
+									</section>
+								</div>
+						</div>
+						<div class="row">
+							<div class="4u">
+								<section>
+									<header>
+										<h2>Blogroll</h2>
+									</header>
+									<ul class="divided">
+											<li><a href="http://getpelican.com/">Pelican</a></li>
+											<li><a href="http://python.org/">Python.org</a></li>
+											<li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+											<li><a href="https://github.com">Github</a></li>
+									</ul>
+								</section>
+							</div>
+							<div class="4u">
+								<section>
+									<header>
+										<h2>Categories</h2>
+									</header>
+									<ul class="divided">
+											<li><a href="/category/posts.html">Posts</a></li>
+											<li><a href="/category/project.html">Project</a></li>
+									</ul>
+								</section>
+							</div>
+							<div class="4u">
+							
+								<section>
+									<header>
+										<h2>Contact</h2>
+									</header>
+									<ul class="social">
+									</ul>
+									<ul class="contact">
+											<li>
+												<h3>Mail</h3>
+												<p><a href="mailto:Victordongy@163.com">Victordongy@163.com</a></p>
+											</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+					</section>
+			</div>
+		<script src="/theme/js/jquery.min.js"></script>
+		<script src="/theme/js/jquery.dropotron.js"></script>
+		<script src="/theme/js/config.js"></script>
+		<script src="/theme/js/skel.min.js"></script>
+		<script src="/theme/js/skel-panels.min.js"></script>
+		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="/theme/css/ie8.css" /><![endif]-->
+	</body>
+</html>
