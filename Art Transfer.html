@@ -6634,21 +6634,6 @@ QxziEA8IhwH1EIc4xCEeEA4D6iEOcYhDPCD8fxB/vryz3R9LAAAAAElFTkSuQmCC
 <p>So, suppose you have picked one particular hidden layer to use. Now, set the image C as the input to the pretrained VGG network, and run forward propagation. Let $a^{(C)}$ be the hidden layer activations in the layer you had chosen. (In lecture, we had written this as $a^{[l](C)}$, but here we'll drop the superscript $[l]$ to simplify the notation.) This will be a $n_H \times n_W \times n_C$ tensor. Repeat this process with the image G: Set G as the input, and run forward progation. Let $$a^{(G)}$$ be the corresponding hidden layer activation. We will define as the content cost function as:</p>
 <p>$$J_{content}(C,G) =  \frac{1}{4 \times n_H \times n_W \times n_C}\sum _{ \text{all entries}} (a^{(C)} - a^{(G)})^2\tag{1} $$</p>
 <p>Here, $n_H, n_W$ and $n_C$ are the height, width and number of channels of the hidden layer you have chosen, and appear in a normalization term in the cost. For clarity, note that $a^{(C)}$ and $a^{(G)}$ are the volumes corresponding to a hidden layer's activations. In order to compute the cost $J_{content}(C,G)$, it might also be convenient to unroll these 3D volumes into a 2D matrix, as shown below. (Technically this unrolling step isn't needed to compute $J_{content}$, but it will be good practice for when you do need to carry out a similar operation later for computing the style const $J_{style}$.)</p>
-<p><strong>Instructions</strong>: The 3 steps to implement this function are:</p>
-<ol>
-<li>Retrieve dimensions from a_G: <ul>
-<li>To retrieve dimensions from a tensor X, use: <code>X.get_shape().as_list()</code></li>
-</ul>
-</li>
-<li>Unroll a_C and a_G as explained in the picture above<ul>
-<li>If you are stuck, take a look at <a href="https://www.tensorflow.org/versions/r1.3/api_docs/python/tf/transpose">Hint1</a> and <a href="https://www.tensorflow.org/versions/r1.2/api_docs/python/tf/reshape">Hint2</a>.</li>
-</ul>
-</li>
-<li>Compute the content cost:<ul>
-<li>If you are stuck, take a look at <a href="https://www.tensorflow.org/api_docs/python/tf/reduce_sum">Hint3</a>, <a href="https://www.tensorflow.org/api_docs/python/tf/square">Hint4</a> and <a href="https://www.tensorflow.org/api_docs/python/tf/subtract">Hint5</a>.</li>
-</ul>
-</li>
-</ol>
 </div>
 </div>
 </div>
@@ -10181,8 +10166,6 @@ AElFTkSuQmCC
 <p>The result is a matrix of dimension $(n_C,n_C)$ where $n_C$ is the number of filters. The value $G_{ij}$ measures how similar the activations of filter $i$ are to the activations of filter $j$.</p>
 <p>One important part of the gram matrix is that the diagonal elements such as $G_{ii}$ also measures how active filter $i$ is. For example, suppose filter $i$ is detecting vertical textures in the image. Then $G_{ii}$ measures how common  vertical textures are in the image as a whole: If $G_{ii}$ is large, this means that the image has a lot of vertical texture.</p>
 <p>By capturing the prevalence of different types of features ($G_{ii}$), as well as how much different features occur together ($G_{ij}$), the Style matrix $G$ measures the style of an image.</p>
-<p><strong>Exercise</strong>:
-Using TensorFlow, implement a function that computes the Gram matrix of a matrix A. The formula is: The gram matrix of A is $G_A = AA^T$. If you are stuck, take a look at <a href="https://www.tensorflow.org/api_docs/python/tf/matmul">Hint 1</a> and <a href="https://www.tensorflow.org/api_docs/python/tf/transpose">Hint 2</a>.</p>
 </div>
 </div>
 </div>
@@ -10278,30 +10261,6 @@ Using TensorFlow, implement a function that computes the Gram matrix of a matrix
 <p>After generating the Style matrix (Gram matrix), your goal will be to minimize the distance between the Gram matrix of the "style" image S and that of the "generated" image G. For now, we are using only a single hidden layer $a^{[l]}$, and the corresponding style cost for this layer is defined as:</p>
 <p>$$J_{style}^{[l]}(S,G) = \frac{1}{4 \times {n_C}^2 \times (n_H \times n_W)^2} \sum _{i=1}^{n_C}\sum_{j=1}^{n_C}(G^{(S)}_{ij} - G^{(G)}_{ij})^2\tag{2} $$</p>
 <p>where $G^{(S)}$ and $G^{(G)}$ are respectively the Gram matrices of the "style" image and the "generated" image, computed using the hidden layer activations for a particular hidden layer in the network.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Exercise</strong>: Compute the style cost for a single layer.</p>
-<p><strong>Instructions</strong>: The 3 steps to implement this function are:</p>
-<ol>
-<li>Retrieve dimensions from the hidden layer activations a_G: <ul>
-<li>To retrieve dimensions from a tensor X, use: <code>X.get_shape().as_list()</code></li>
-</ul>
-</li>
-<li>Unroll the hidden layer activations a_S and a_G into 2D matrices, as explained in the picture above.<ul>
-<li>You may find <a href="https://www.tensorflow.org/versions/r1.3/api_docs/python/tf/transpose">Hint1</a> and <a href="https://www.tensorflow.org/versions/r1.2/api_docs/python/tf/reshape">Hint2</a> useful.</li>
-</ul>
-</li>
-<li>Compute the Style matrix of the images S and G. (Use the function you had previously written.) </li>
-<li>Compute the Style cost:<ul>
-<li>You may find <a href="https://www.tensorflow.org/api_docs/python/tf/reduce_sum">Hint3</a>, <a href="https://www.tensorflow.org/api_docs/python/tf/square">Hint4</a> and <a href="https://www.tensorflow.org/api_docs/python/tf/subtract">Hint5</a> useful.</li>
-</ul>
-</li>
-</ol>
 </div>
 </div>
 </div>
@@ -20410,7 +20369,7 @@ VYYMGTJ+ErKAKkOGDBk/CVlAlSFDhoyfhCygypAhQ8ZP4v8Byb9nkgtad5kAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Exercise</strong>: Now that you have J_content and J_style, compute the total cost J by calling <code>total_cost()</code>. Use <code>alpha = 10</code> and <code>beta = 40</code>.</p>
+<p>Now that you have J_content and J_style, compute the total cost J by calling <code>total_cost()</code>. Use <code>alpha = 10</code> and <code>beta = 40</code>.</p>
 </div>
 </div>
 </div>
@@ -20454,7 +20413,7 @@ VYYMGTJ+ErKAKkOGDBk/CVlAlSFDhoyfhCygypAhQ8ZP4v8Byb9nkgtad5kAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Exercise</strong>: Implement the model_nn() function which initializes the variables of the tensorflow graph, assigns the input image (initial generated image) as the input of the VGG16 model and runs the train_step for a large number of steps.</p>
+<p>Implement the model_nn() function which initializes the variables of the tensorflow graph, assigns the input image (initial generated image) as the input of the VGG16 model and runs the train_step for a large number of steps.</p>
 </div>
 </div>
 </div>
